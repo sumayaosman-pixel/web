@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}.opcard:has(.ol-net) .oplayers{aspect-ratio:1/0.92}
 .ol-net{width:72%!important;left:0;bottom:0}
+.ol-slack{width:62%;left:2%;top:2%;transform:rotate(-7deg);z-index:1}
+.opcard:hover .ol-slack{transform:rotate(-10deg) translate(-4%,-3%)}
+.opstats{grid-template-columns:auto auto minmax(0,1fr)!important}
+.opstats{display:flex!important;flex-wrap:wrap;gap:14px 30px}
+.opcard:has(.ol-net) .oplayers{aspect-ratio:1/1.02!important}
+.ol-net{width:64%!important}
+.ol-slack{width:70%!important;top:0!important}
 </style>
 <title>Sumaya Osman Operations Edition</title>
 <meta name="description" content="Sumaya Osman. Business strategy and customer work, done with AI. Selected work, things I've built, and writing.">
@@ -718,13 +725,14 @@ h1,h2,h3,h4{margin:0;font-family:var(--display);text-wrap:balance}
         <article class="opcard">
           <div class="oplayers">
             <figure class="ol ol-a"><img src="a65a2afe628a.jpg" alt="Line balancing table with idle time per workstation highlighted" width="900" height="699"></figure>
+            <figure class="ol ol-c ol-slack"><img src="c1ee5a7e4eef.jpg" alt="Updated network with slack times after shortening activities C and I" width="1151" height="542"></figure>
             <figure class="ol ol-b ol-net"><img src="98d3a963542e.jpg" alt="Full network diagram of the production tasks" width="1200" height="1128"></figure>
             <span class="grade"><small>Grade</small>82</span>
           </div>
           <p class="opk">BUS002 Operations Management, individual</p>
           <h4>Balancing a production line</h4>
-          <div class="opstats"><div><b>84s</b><span>cycle time</span></div><div><b>78% → 87%</b><span>line efficiency after rebalancing</span></div></div>
-          <p>Mapped the task network, balanced the line with two heuristics, compared level and chase capacity plans, and resized production batches to cut inventory cost.</p>
+          <div class="opstats"><div><b>84s</b><span>cycle time</span></div><div><b>63 → 59</b><span>weeks, after cutting the critical path</span></div><div><b>78% → 87%</b><span>line efficiency after rebalancing</span></div></div>
+          <p>Mapped the task network, balanced the line with two heuristics, found the critical path and slack in a project schedule, compared level and chase capacity plans, and resized production batches to cut inventory cost.</p>
           <ul class="opchips"><li>Line balancing</li><li>Capacity planning</li><li>Inventory and batch size</li></ul>
         </article>
       </div>
