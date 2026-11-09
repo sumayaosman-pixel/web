@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sumaya Osman · Portfolio for Beam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Layout: a narrow reading column with numbered case studies, each a two-part row (what I did / what happened) */
+  --paper: #f3f5f7;
+  --surface: #ffffff;
+  --ink: #131a24;
+  --muted: #566070;
+  --line: #d9dee5;
+  --accent: #2443c9;
+  --highlight: #f4c63d;
+  --display: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0f141c; --surface: #161d28; --ink: #e9edf3; --muted: #9aa5b5;
+    --line: #2a3442; --accent: #8ea2ff; --highlight: #f4c63d; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0f141c; --surface: #161d28; --ink: #e9edf3; --muted: #9aa5b5;
+  --line: #2a3442; --accent: #8ea2ff; --highlight: #f4c63d; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.6; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+.wrap { max-width: 920px; margin: 0 auto; padding: 0 24px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; text-wrap: balance; margin: 0; line-height: 1.1; }
+
+header { padding: 72px 0 40px; border-bottom: 1px solid var(--line); }
+.kicker { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+h1 { font-size: clamp(48px, 9vw, 88px); margin: 12px 0 20px; }
+h1 em { font-style: italic; }
+.mark { background: linear-gradient(transparent 80%, var(--highlight) 80%); color: inherit; }
+.intro { max-width: 62ch; font-size: 19px; margin: 0; }
+.meta { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 24px; font-size: 15px; color: var(--muted); }
+
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin: 48px 0 0; }
+.stat { background: var(--surface); padding: 20px; display: flex; flex-direction: column; gap: 4px; }
+.stat b { font-family: var(--display); font-weight: 400; font-size: 40px; line-height: 1; font-variant-numeric: tabular-nums; }
+.stat span { font-size: 14px; color: var(--muted); line-height: 1.4; }
+
+section { padding: 64px 0 0; }
+.section-title { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--ink); padding-bottom: 12px; margin-bottom: 8px; }
+.section-title h2 { font-size: 36px; }
+.section-title p { margin: 0; color: var(--muted); font-size: 15px; }
+
+.case { display: grid; grid-template-columns: 64px 1fr; gap: 0 24px; padding: 36px 0; border-bottom: 1px solid var(--line); }
+.num { font-family: var(--display); font-size: 40px; color: var(--accent); line-height: 1; }
+.case h3 { font-size: 30px; margin-bottom: 6px; }
+.role { color: var(--muted); font-size: 15px; margin: 0 0 16px; }
+.cols { display: grid; grid-template-columns: 1.3fr 1fr; gap: 28px; }
+.cols p { margin: 0 0 12px; }
+ul { margin: 0; padding-left: 18px; }
+li { margin-bottom: 6px; }
+.result { background: var(--surface); border-left: 3px solid var(--highlight); padding: 16px 18px; font-size: 15px; }
+.result strong { display: block; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.tag { font-size: 13px; border: 1px solid var(--line); border-radius: 999px; padding: 3px 12px; color: var(--muted); }
+.quote { font-family: var(--display); font-style: italic; font-size: 22px; line-height: 1.3; margin: 0 0 12px; }
+
+.beam { background: var(--ink); color: var(--paper); padding: 40px; margin-top: 64px; }
+.beam h2 { font-size: 36px; margin-bottom: 16px; }
+.beam p { max-width: 64ch; margin: 0 0 14px; }
+.beam a { color: var(--highlight); }
+
+footer { padding: 48px 0 64px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; color: var(--muted); font-size: 15px; }
+.links { display: flex; flex-wrap: wrap; gap: 20px; }
+
+
+.shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; margin-top: 20px; }
+.shots figure { margin: 0; display: flex; flex-direction: column; gap: 6px; }
+.shots img, .shots video { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; background: var(--surface); border: 1px solid var(--line); display: block; }
+.shots.wide { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.shots.wide img { aspect-ratio: 16 / 10; }
+.shots figcaption { font-size: 13px; color: var(--muted); line-height: 1.35; }
+.shots a { display: block; }
+.shots a:hover img { border-color: var(--accent); }
+@media (prefers-reduced-motion: reduce) { .shots video { display: none; } .shots .poster-fallback { display: block; } }
+
+@media (max-width: 720px) {
+  header { padding-top: 48px; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .case { grid-template-columns: 1fr; }
+  .num { margin-bottom: 8px; }
+  .cols { grid-template-columns: 1fr; gap: 16px; }
+  .beam { padding: 28px 20px; }
+  .section-title { flex-direction: column; gap: 4px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="kicker">Portfolio · Content, campaigns and storytelling</div>
+    <h1>Sumaya <em>Osman</em></h1>
+    <p class="intro">I help people <span class="mark">pay attention to something new and act on it</span>. Sometimes that's a campaign, sometimes a community account, a newsletter story or a one-to-one onboarding call. This page collects the content I've created, grown or managed myself, from posters and carousels to newsletters and short video.</p>
+    <div class="meta">
+      <span>London</span>
+      <span>BSc Business Management, First Class, Queen Mary</span>
+      <span>English · Somali · Arabic</span>
+    </div>
+    <div class="stats" aria-label="Headline results">
+      <div class="stat"><b>129%</b><span>year-on-year LinkedIn follower growth for QMIFS, past 1,000 followers</span></div>
+      <div class="stat"><b>£50k+</b><span>package sales from the Travelway Ramadan Umrah campaign</span></div>
+      <div class="stat"><b>£2k+</b><span>raised in three days by a charity campaign I co-led</span></div>
+      <div class="stat"><b>33</b><span>pages in the Travelway brand strategy and production guide</span></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section aria-labelledby="work">
+    <div class="section-title">
+      <h2 id="work">Selected work</h2>
+      <p>Five projects, 2024 to 2026</p>
+    </div>
+
+    <article class="case">
+      <div class="num">01</div>
+      <div>
+        <h3>Queen Mary Islamic Finance Society</h3>
+        <p class="role">Head Analyst · September 2024 to June 2026 · LinkedIn and the Amanah Times newsletter</p>
+        <div class="cols">
+          <div>
+            <p>I ran the society's LinkedIn and led the analyst team behind our newsletter, Amanah Times. We made Issue 1 together as a team.</p>
+            <ul>
+              <li>Led the society's data work: our analyst wrote the engagement report, I edited it, and we used it to shape what we posted next.</li>
+              <li>The key finding: written, educational posts drew almost 4× the engagement of video at similar reach, so we put written content first.</li>
+              <li>Wrote the Issue 1 lead story, <em>Shattering the Ceiling</em>, about the UK's first Shariah-compliant social investment fund.</li>
+              <li>Co-led a charity campaign across our channels.</li>
+            </ul>
+          </div>
+          <div class="result"><strong>What happened</strong>Following grew 129% year on year to more than 1,000, with 15.17% engagement on impressions against a 4.5% platform average. The charity campaign raised £2,000+ in three days. I was nominated for Student Union RAG Contributor of the Year.</div>
+        </div>
+        <div class="tags"><span class="tag">Social media management</span><span class="tag">Newsletter</span><span class="tag">Long-form writing</span><span class="tag">Audience data</span></div>
+        <div class="shots"><figure><a href="d83c5a845e13.jpg"><img src="d83c5a845e13.jpg" alt="Amanah Times, Issue 1 cover" loading="lazy"></a><figcaption>Amanah Times, Issue 1 cover</figcaption></figure><figure><a href="418dbe7852ce.jpg"><img src="418dbe7852ce.jpg" alt="My lead story: the UK's first Shariah-compliant social investment fund" loading="lazy"></a><figcaption>My lead story: the UK's first Shariah-compliant social investment fund</figcaption></figure><figure><a href="3ff3794b25fd.jpg"><img src="3ff3794b25fd.jpg" alt="Key Concepts carousel: sales-based riba" loading="lazy"></a><figcaption>Key Concepts carousel: sales-based riba</figcaption></figure><figure><a href="ef0397c8d27b.jpg"><img src="ef0397c8d27b.jpg" alt="Carousel slide: the rules, simplified into a table" loading="lazy"></a><figcaption>Carousel slide: the rules, simplified into a table</figcaption></figure><figure><a href="0c227ee2670a.jpg"><img src="0c227ee2670a.jpg" alt="QMIFS upcoming events poster" loading="lazy"></a><figcaption>QMIFS upcoming events poster</figcaption></figure><figure><a href="0c9d6a8d5b68.jpg"><img src="0c9d6a8d5b68.jpg" alt="Charity football tournament poster" loading="lazy"></a><figcaption>Charity football tournament poster</figcaption></figure></div>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="num">02</div>
+      <div>
+        <h3>Content for OdjoAI</h3>
+        <p class="role">Business Development Intern · July 2025 to April 2026 · An early-stage AI outreach startup</p>
+        <div class="cols">
+          <div>
+            <p>Alongside lead qualification, I worked on how OdjoAI told its story: the product, the merch and short-form social.</p>
+            <ul>
+              <li>Wrote a blog post on UK freelancers and why talent alone doesn't win clients without targeted outreach.</li>
+              <li>Turned customer feedback into a product improvement that shipped, which showed me how much a clear story about a user's problem moves a team.</li>
+            </ul>
+          </div>
+          <div class="result"><strong>Formats</strong>Short-form video, photography, blog writing and pitch deck slides.</div>
+        </div>
+        <div class="tags"><span class="tag">Video</span><span class="tag">Photography</span><span class="tag">Blog</span><span class="tag">Pitch deck</span></div>
+        <div class="shots"><figure><video src="0a326b4f9d8e.mp4" autoplay muted loop playsinline controls aria-label="Retro-style story video: Clients will find you at the right time"></video><figcaption>Story video: "Clients will find you at the right time"</figcaption></figure><figure><a href="4cd9e62314ec.png"><img src="4cd9e62314ec.png" alt="Odjo Club merch t-shirt photo" loading="lazy"></a><figcaption>Odjo Club merch t-shirt photo</figcaption></figure><figure><a href="2fa22406eee6.jpg"><img src="2fa22406eee6.jpg" alt="My blog post on the OdjoAI site" loading="lazy"></a><figcaption>My blog post on the OdjoAI site</figcaption></figure><figure><a href="337407cc689a.jpg"><img src="337407cc689a.jpg" alt="Pitch deck slide: AI adoption in large vs small businesses" loading="lazy"></a><figcaption>Pitch deck slide: AI adoption in large vs small businesses</figcaption></figure></div>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="num">03</div>
+      <div>
+        <h3>Ramadan Umrah campaign</h3>
+        <p class="role">Campaign Lead, Travelway · January to March 2026</p>
+        <div class="cols">
+          <div>
+            <p>Travelway was heading for a loss on its Ramadan season. I planned and ran the campaign that changed that.</p>
+            <ul>
+              <li>Wrote the campaign messaging and coordinated the digital content and customer-facing materials.</li>
+              <li>Built an inbound waitlist so interested customers were ready when packages opened.</li>
+            </ul>
+          </div>
+          <div class="result"><strong>What happened</strong>£50,000+ in package sales and a waitlist worth £10k. A projected seasonal loss became a profitable campaign.</div>
+        </div>
+        <div class="tags"><span class="tag">Campaign storytelling</span><span class="tag">Digital content</span><span class="tag">Commercial planning</span></div>
+        <div class="shots wide"><figure><a href="c05d51770593.jpg"><img src="c05d51770593.jpg" alt="Ramadan Umrah campaign summary" loading="lazy"></a><figcaption>Ramadan Umrah campaign summary</figcaption></figure></div>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="num">04</div>
+      <div>
+        <h3>Travelway brand strategy and website</h3>
+        <p class="role">Brand strategy, production guide and web build</p>
+        <div class="cols">
+          <div>
+            <p>A 33-page brand strategy and Canva production guide that repositions Travelway as a premium global travel company.</p>
+            <ul>
+              <li>Designed a six sub-brand architecture built around a central platform, Atlas.</li>
+              <li>Wrote the guide so anyone on the team could produce on-brand content without me in the room.</li>
+              <li>Separately, rebuilt the company website with no-code and AI tools and made it secure after the old site wasn't.</li>
+            </ul>
+          </div>
+          <div class="result"><strong>Why it matters</strong>A production guide is a playbook. It turns one person's judgement into something a whole team can repeat.</div>
+        </div>
+        <div class="tags"><span class="tag">Brand strategy</span><span class="tag">Visual identity</span><span class="tag">Playbooks</span><span class="tag">Web</span></div>
+        <div class="shots wide"><figure><a href="d6e9407beaa6.jpg"><img src="d6e9407beaa6.jpg" alt="The Travelway website I rebuilt" loading="lazy"></a><figcaption>The Travelway website I rebuilt</figcaption></figure></div>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="num">05</div>
+      <div>
+        <h3>TikTok creator rebrand</h3>
+        <p class="role">Strategist · @lifeofsaintkings to @TheyCallMeSaint</p>
+        <div class="cols">
+          <div>
+            <p>A brand guide and 30-day content calendar for a TikTok creator changing name and direction.</p>
+            <ul>
+              <li>Connected positioning, visual identity and short-form video ideas into one plan.</li>
+              <li>Planned a month of posts so the new identity landed consistently from day one.</li>
+            </ul>
+          </div>
+          <div class="result"><strong>My role</strong>Credited as strategist across all deliverables.</div>
+        </div>
+        <div class="tags"><span class="tag">Short-form video planning</span><span class="tag">Content calendar</span><span class="tag">Positioning</span></div>
+      </div>
+    </article>
+  </section>
+
+  <section class="beam" aria-labelledby="beam">
+    <h2 id="beam">Why this fits enablement at Beam</h2>
+    <p>Good enablement content does the same job as a good campaign: it reaches someone busy, makes a new tool feel relevant to their day, and gets them to try it. Frontline workers never asked for new software, so the guide, video or session has to earn their attention.</p>
+    <p>I do this one to one now. At Aircall I run trials and short enablement calls, and help customers set up AI voice agents for their own use cases. Before that I taught weekend Islamic Studies classes for a year, which taught me to explain one idea three different ways until it lands.</p>
+    <p>I speak English and Somali fluently and Arabic at an intermediate level. For a product that offers live interpretation, I'd bring an understanding of the communities many frontline teams serve.</p>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span>Sumaya Osman · London · 2026</span>
+  <div class="links">
+    <a href="./">Full portfolio</a>
+    <a href="https://sumaya-ainaitve.my.canva.site">Canva portfolio</a>
+  </div>
+</footer>
+</body>
+</html>
