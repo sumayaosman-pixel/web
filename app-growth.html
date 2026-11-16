@@ -112,6 +112,20 @@ footer .in{max-width:1024px;margin:0 auto;padding:60px 22px;display:flex;justify
 footer .big{font-size:40px;font-weight:800;letter-spacing:-.03em}
 footer small{display:block;color:var(--grey);font-size:15px;margin-top:6px}
 .disc{max-width:1024px;margin:0 auto;padding:0 22px 30px;font-size:12px;color:#86868B}
+
+.laptop{position:relative;padding:10px 10px 40px}
+.lid{position:relative;background:#1D1D1F;border-radius:18px 18px 6px 6px;padding:16px 14px 14px;box-shadow:0 30px 60px rgba(0,0,0,.18);transform:perspective(1200px) rotateX(18deg) translateY(30px);transform-origin:bottom center;transition:transform 1.4s cubic-bezier(.2,.8,.2,1)}
+.lid img{display:block;width:100%;border-radius:6px;background:#fff}
+.cam{position:absolute;top:6px;left:50%;width:6px;height:6px;margin-left:-3px;border-radius:50%;background:#3A3A3C}
+.base{height:14px;margin:0 -24px;background:linear-gradient(#D2D2D7,#AEAEB2);border-radius:0 0 18px 18px;box-shadow:0 14px 26px rgba(0,0,0,.12)}
+.base:after{content:"";display:block;width:90px;height:6px;margin:0 auto;background:#B9B9BE;border-radius:0 0 8px 8px}
+.laptop.in .lid{transform:none}
+.tagf{position:absolute;right:-6px;top:-8px;background:#fff;border-radius:980px;padding:8px 14px;font-size:13px;font-weight:700;box-shadow:0 10px 24px rgba(0,0,0,.1);animation:float 6s ease-in-out infinite}
+.quote{position:relative;background:#fff;border-radius:28px;padding:34px 34px 28px;box-shadow:0 4px 24px rgba(0,0,0,.05)}
+.quote .qm{position:absolute;top:-6px;left:26px;font-size:110px;line-height:1;font-weight:800;background:linear-gradient(90deg,#0071E3,#8E5CF7);-webkit-background-clip:text;background-clip:text;color:transparent}
+.quote p{font-size:22px;line-height:1.38;font-weight:700;letter-spacing:-.015em;margin:34px 0 18px}
+.quote footer{background:none;border:none;padding:0;font-size:14px;color:var(--grey);line-height:1.45}
+.quote footer b{display:block;color:var(--ink);font-size:15px}
 /* reveal */
 .screen{text-align:left}.ad>div:nth-child(2){min-width:0}
 .grey .chip{background:#fff}.grey .tile:not(.dark){background:#fff}
@@ -128,7 +142,7 @@ footer small{display:block;color:var(--grey);font-size:15px;margin-top:6px}
  .float{display:none}.stage{height:330px}
  h2,.why h2{font-size:38px}.brief,.story,.sq{grid-template-columns:1fr}.tiles{grid-template-columns:1fr}.t2{grid-column:auto}
  .kpis{grid-template-columns:1fr 1fr}section{padding:80px 20px}.phones{height:380px}.ph{width:140px}}
-@media (prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.js .reveal{opacity:1;transform:none}.js .chart .ln{stroke-dashoffset:0}.chart .flag{opacity:1}.phones .ph.a{transform:translateX(-130%) translateY(26px) rotate(-8deg)}.phones .ph.c{transform:translateX(30%) translateY(26px) rotate(8deg)}}
+@media (prefers-reduced-motion:reduce){.lid{transform:none!important}*,*:before,*:after{animation:none!important;transition:none!important}.js .reveal{opacity:1;transform:none}.js .chart .ln{stroke-dashoffset:0}.chart .flag{opacity:1}.phones .ph.a{transform:translateX(-130%) translateY(26px) rotate(-8deg)}.phones .ph.c{transform:translateX(30%) translateY(26px) rotate(8deg)}}
 </style></head>
 <body>
 
@@ -225,18 +239,21 @@ footer small{display:block;color:var(--grey);font-size:15px;margin-top:6px}
 <div class="grey" id="pitch"><section>
   <div class="sec-ey reveal">Presenting and building</div>
   <h2 class="reveal">I’m comfortable in front of a room.</h2>
-  <p class="sub reveal">Student Speaker at Queen Mary’s Employers’ Address. An IBM recommendation rated Outstanding. And SustainQ, pitched to senior stakeholders.</p>
+  <p class="sub reveal">Student Speaker at Queen Mary’s Employers’ Address. SustainQ, pitched to senior stakeholders. And an IBM consultancy recommendation, rated Outstanding.</p>
   <div class="sq">
-    <div class="phones reveal" id="phones" aria-label="Three SustainQ app screens">
-      <div class="ph a"><img src="9a3a7cce8b19.jpg" alt="SustainQ support chat inviting users to a sustainability quiz"></div>
-      <div class="ph b"><img src="32ff74ddd576.jpg" alt="SustainQ feed of challenges, giveaways and eco-tips"></div>
-      <div class="ph c"><img src="831ceea36b14.jpg" alt="SustainQ profile screen"></div>
+    <div class="laptop reveal" id="phones">
+      <div class="lid"><div class="cam"></div><img src="5cb34c610653.jpg" alt="Figma prototype of the AI learning pathway, with activities and a job simulation"></div>
+      <div class="base"></div>
+      <div class="tagf">Figma prototype · IBM</div>
     </div>
-    <div class="reveal">
-      <h3 style="font-size:32px;font-weight:800;letter-spacing:-.02em;margin-bottom:12px">SustainQ</h3>
-      <p style="font-size:18px;line-height:1.55;color:#424245;margin-bottom:12px">An app concept that makes sustainability rewarding, with quizzes, eco-challenges and points. Teammates, mostly postgraduates, chose me to lead it from idea to final pitch, which senior stakeholders praised.</p>
-      <p style="font-size:18px;line-height:1.55;color:#424245">I also build with AI: a working Python app on local language models that scores interview and sales role-plays against a rubric.</p>
-      <div class="chips"><span class="chip">Team lead</span><span class="chip">App concept</span><span class="chip">Python</span><span class="chip">Local LLMs</span></div>
+    <div>
+      <blockquote class="quote reveal">
+        <span class="qm">“</span>
+        <p>Your project not only serves as a testament to your academic capabilities but also highlights your potential as future leaders and innovators.</p>
+        <footer><b>John McNamara</b>IBM Master Inventor, on our student consultancy recommendation</footer>
+      </blockquote>
+      <p class="reveal" style="font-size:17px;line-height:1.55;color:#424245;margin-top:22px">Our team of four designed an AI learning pathway from sixth form to university, prototyped in Figma, and presented it to IBM. It was recognised as an Outstanding Recommendation.</p>
+      <div class="chips reveal"><span class="chip">Team of four</span><span class="chip">Figma</span><span class="chip">Outstanding Recommendation</span></div>
     </div>
   </div>
 </section></div>
