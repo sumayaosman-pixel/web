@@ -161,15 +161,49 @@ h2 s{text-decoration:none;color:var(--ink2)}
   padding:1px 9px;font-family:M,monospace;font-size:10px;letter-spacing:.11em;text-transform:uppercase}
 .pt span{font-size:14px;color:var(--ink2)}
 
+/* quote */
+.quote{margin-top:clamp(56px,7vw,90px);background:var(--ink);color:var(--paper);
+  border-radius:clamp(20px,2.6vw,32px);padding:clamp(32px,4.4vw,56px);
+  display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(26px,4vw,52px);align-items:center}
+.quote blockquote{margin:0;font-family:G,sans-serif;font-weight:500;
+  font-size:clamp(20px,2.5vw,31px);line-height:1.2;letter-spacing:-.025em}
+.quote blockquote b{font-weight:700;color:var(--zap)}
+.quote .who{margin:20px 0 0;font-size:14px;color:rgba(251,248,243,.72)}
+.quote .who b{display:block;color:var(--paper);font-weight:600;font-size:15px}
+.qthumb{position:relative;background:var(--paper);border:1.5px solid var(--ink);border-radius:14px;
+  padding:10px;box-shadow:6px 6px 0 var(--zap)}
+.qthumb img{width:100%;border-radius:7px;display:block}
+.qthumb em{position:absolute;left:50%;bottom:-13px;transform:translateX(-50%);white-space:nowrap;
+  background:var(--zap);border:1.5px solid var(--ink);border-radius:999px;padding:3px 13px;
+  font-family:M,monospace;font-style:normal;font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink)}
+
 /* along the way */
-.along{margin-top:clamp(44px,6vw,70px);border-top:1.5px solid var(--ink);padding-top:26px}
+.along{margin-top:clamp(56px,7vw,92px);border-top:1.5px solid var(--ink);padding-top:30px}
 .along h3{font-family:G,sans-serif;font-weight:700;font-size:clamp(20px,2.4vw,28px);margin:0 0 4px;
   letter-spacing:-.02em}
-.along .sub{margin:0 0 20px}
-.chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none;padding:0;margin:0}
+.along .sub{margin:0 0 26px}
+.mgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.m{margin:0;position:relative;background:var(--paper);border:1.5px solid var(--ink);border-radius:18px;
+  padding:20px;overflow:hidden;transition:transform .3s var(--e),box-shadow .3s var(--e)}
+.m:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--ink)}
+.m b{display:block;font-family:G,sans-serif;font-weight:700;font-size:16px;letter-spacing:-.015em;
+  margin-top:12px}
+.m p{margin:7px 0 0;font-size:13.5px;color:var(--ink2)}
+.m img{width:100%;border:1.5px solid var(--ink);border-radius:10px;display:block}
+.m figcaption b{margin-top:12px}
+.m figcaption span{font-family:M,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink2)}
+.m-code{color:var(--ink)}
+.m .stamp,.m .medal{display:block}
+.m-book .ribbon{position:absolute;right:-28px;top:14px;width:120px;height:22px;background:var(--zap);
+  border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);transform:rotate(38deg)}
+.m-book .peek{display:grid;gap:2px;background:var(--cream);border:1.5px dashed var(--ink);
+  border-radius:10px;padding:12px 14px;font-size:12px;color:var(--ink2)}
+.m-book .peek b{font-family:M,monospace;font-size:10px;letter-spacing:.16em;margin:0;color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:20px 0 0}
 .chips li{background:var(--paper);border:1.5px solid var(--ink);border-radius:999px;
-  padding:8px 15px;font-size:14px}
-.chips li b{font-weight:600}
+  padding:7px 14px;font-size:13.5px}
 .chips li.hi{background:var(--zap)}
 
 /* 05 values */
@@ -194,7 +228,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .rv.on{opacity:1;transform:none}
 .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
 
-@media(max-width:1100px){ .piles{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media(max-width:1100px){ .piles{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .mgrid{grid-template-columns:repeat(2,minmax(0,1fr))} }
 @media(max-width:900px){
   nav .links{display:none}
   nav{padding:7px 7px 7px 16px}
@@ -205,6 +240,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   header h1{order:1} header .lede{order:2} header .acts{order:3}
   .two,.steps,.vals{grid-template-columns:1fr}
   .piles{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:48px}
+  .mgrid{grid-template-columns:1fr}
+  .quote{grid-template-columns:1fr}
   .mx{grid-template-columns:repeat(2,1fr);gap:22px}
   h1{max-width:none}
 }
@@ -330,10 +367,28 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <div class="pile rv d2 land"><div class="stackp"><figure class="pc pc1"><img src="98d3a963542e.jpg" alt="Network diagram of production tasks"></figure><figure class="pc pc2"><img src="c1ee5a7e4eef.jpg" alt="Updated network with slack times"></figure><figure class="pc pc3"><img src="a65a2afe628a.jpg" alt="Line balancing table with idle time highlighted"></figure></div><p class="pt"><b>Where the time goes<i>82%</i></b><span>Finding the idle minutes in a process, then taking them out</span></p></div>
     </div>
 
-    <div class="along rv">
-      <h3>Along the way</h3>
-      <p class="sub">The smaller proof. Things I picked up while doing the above.</p>
-      <ul class="chips"><li class="hi">First Class honours</li><li>Operations Management, 82%</li><li>Student Speaker, Employers' Address</li><li>RAG Contributor of the Year, nominated</li><li>Couch2Coder II, Bright Network</li><li>PwC &amp; EDI Future Leaders Programme</li><li>Level 2 Community Sports Leadership</li><li class="hi">English &middot; Somali &middot; Arabic</li></ul>
+    <div class="quote rv">
+      <div>
+        <blockquote>Your project not only serves as a <b>testament to your academic capabilities</b> but also highlights your potential as future leaders and innovators.</blockquote>
+        <p class="who"><b>John McNamara</b>IBM Master Inventor, on our student consultancy recommendation</p>
+      </div>
+      <span class="qthumb"><img src="e529c257ad9a.jpg" alt="Our IBM student consultancy brief slide"><em>Outstanding Recommendation</em></span>
+    </div>
+
+    <div class="along">
+      <h3 class="rv">Along the way</h3>
+      <p class="sub rv">The smaller proof. Things I picked up while doing the above.</p>
+      <div class="mgrid">
+        <figure class="m m-pwc rv"><img src="88258c9de309.jpg" alt="Certificate: PwC and EDI Future Leaders Programme"><figcaption><b>PwC and EDI Future Leaders Programme</b><span>Completed</span></figcaption></figure>
+        <div class="m m-speak rv d1"><svg class="medal" viewBox="0 0 90 110" width="64" height="78" aria-hidden="true"><path d="M28 4h14l6 40H34z" fill="#111110"/><path d="M48 4h14l-6 40H42z" fill="#C6F432"/><path d="M34 4h4l6 40h-4z" fill="#fff" opacity=".45"/><circle cx="45" cy="70" r="26" fill="#C6F432" stroke="#111110" stroke-width="2.5"/><circle cx="45" cy="70" r="20" fill="none" stroke="#111110" stroke-width="1.6"/><path d="M45 56l4 9 10 1-7.5 6.5 2.5 9.5-9-5.2-9 5.2 2.5-9.5L31 66l10-1z" fill="#111110"/></svg><b>Student Speaker, Employers' Address 2024</b><p>Spoke at Queen Mary's event on social mobility and inclusion, alongside Sandra Kerr CBE of Business in the Community and EY's Julie Linn Teigland.</p></div>
+        <div class="m m-code rv d2"><svg class="stamp" viewBox="0 0 120 120" width="88" height="88" aria-hidden="true"><defs><path id="ring" d="M60 60m-42 0a42 42 0 1 1 84 0a42 42 0 1 1-84 0"/></defs><circle cx="60" cy="60" r="55" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="60" cy="60" r="31" fill="none" stroke="currentColor" stroke-width="1.5"/><text font-family="M, monospace" font-size="10" font-weight="700" letter-spacing="1.1" fill="currentColor"><textPath href="#ring">CERTIFIED &#10022; BRIGHT NETWORK &#10022; 2025 &#10022;</textPath></text><text x="60" y="57" text-anchor="middle" font-family="G, sans-serif" font-size="15" font-weight="700" fill="currentColor">C2C II</text><path d="M49 66l7 7 15-15" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Couch2Coder II, Bright Network</b><p>Learnt the foundations of coding through quizzes, then built my own recipe website.</p></div>
+        <div class="m m-book rv d3"><span class="ribbon" aria-hidden="true"></span><span class="peek"><b>ADMIT ONE</b>Museum day trip</span><b>QM Book Club, Welfare Rep</b><p>I love reading. Ran monthly themed events and day trips to London museums.</p></div>
+      </div>
+      <ul class="chips rv">
+        <li class="hi">First Class honours</li><li>Operations Management, 82%</li>
+        <li>RAG Contributor of the Year, nominated</li>
+        <li>Level 2 Community Sports Leadership</li><li class="hi">English &middot; Somali &middot; Arabic</li>
+      </ul>
     </div>
   </div>
 </section>
