@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-GB"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Sumaya Osman — Flatpay</title>
-<meta name="description" content="Application page. Inside Sales Representative and Customer Support Agent, London.">
+<title>Sumaya Osman — Customer Support</title>
+<meta name="description" content="Application page for a customer support role. London, onsite.">
 <meta name="robots" content="noindex">
 <style>
 html,body{background:#060607}
@@ -67,16 +67,6 @@ nav.s{background:rgba(10,10,11,.62);backdrop-filter:blur(20px);-webkit-backdrop-
 @media(max-width:900px){.rule{display:none}}
 .hero .wrap{position:relative;z-index:2;width:100%}
 
-/* role switch */
-.switch{display:inline-flex;align-items:center;gap:4px;padding:4px;border-radius:999px;
-  background:var(--glass);border:1px solid var(--edge);backdrop-filter:blur(14px);margin-bottom:26px;
-  position:relative;opacity:0;animation:fade .9s .25s forwards}
-.switch .thumb{position:absolute;top:4px;left:4px;height:calc(100% - 8px);border-radius:999px;
-  background:hsl(var(--fg));transition:transform .55s var(--e),width .55s var(--e);z-index:0}
-.switch button{position:relative;z-index:1;border:0;background:none;cursor:pointer;font-family:I;
-  font-size:13px;font-weight:500;letter-spacing:-.01em;color:hsl(var(--fg)/.55);padding:9px 16px;
-  border-radius:999px;transition:color .4s var(--e);white-space:nowrap}
-.switch button[aria-selected="true"]{color:hsl(var(--bg))}
 @keyframes fade{to{opacity:1}}
 
 h1{font-size:clamp(36px,6.2vw,82px);line-height:.99;letter-spacing:-.045em;font-weight:400;max-width:16ch;
@@ -85,7 +75,7 @@ h1 .w{display:inline-block;opacity:0;filter:blur(10px);transform:translateY(16px
   animation:wIn .85s var(--e2) forwards}
 @keyframes wIn{to{opacity:1;filter:blur(0);transform:none}}
 h1 s{font-family:S;font-style:italic;text-decoration:none;color:hsl(var(--fg)/.6);letter-spacing:-.02em}
-.lede{margin-top:26px;max-width:34rem;font-size:clamp(15.5px,1.4vw,17.5px);line-height:1.62;font-weight:300;
+.lede{margin-top:28px;max-width:34rem;font-size:clamp(15.5px,1.4vw,17.5px);line-height:1.62;font-weight:300;
   color:hsl(var(--fg)/.68);text-shadow:0 2px 18px rgba(0,0,0,.42);opacity:0;animation:fade 1s .72s forwards}
 .lede b{color:hsl(var(--fg));font-weight:500}
 .acts{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap;opacity:0;animation:fade 1s .86s forwards}
@@ -191,7 +181,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   .links{display:none}.mark{font-size:14px}
   .cta{font-size:13px;padding:10px 10px 10px 18px}
   .hero{padding-top:100px}
-  .switch{margin-bottom:20px}.switch button{font-size:12px;padding:8px 12px}
   h1{letter-spacing:-.035em}
   .marq{margin-top:30px}
   .mx{border-radius:20px}.m{padding:26px 22px}
@@ -202,7 +191,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 @media (prefers-reduced-motion:reduce){
   *{animation-duration:.001ms!important;animation-delay:0!important;transition-duration:.001ms!important}
   .js .rv{opacity:1;transform:none}h1 .w{opacity:1;filter:none;transform:none}
-  .lede,.acts,.switch,.marq,.receipt,nav{opacity:1}.bgwrap video.on{opacity:.55;transform:none}
+  .lede,.acts,.marq,.receipt,nav{opacity:1}.bgwrap video.on{opacity:.55;transform:none}
   .receipt .r{opacity:1;transform:none}.receipt .appr{opacity:1}
 }
 </style>
@@ -222,30 +211,23 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   <div class="rule l"></div><div class="rule r"></div>
 
   <aside class="receipt" id="receipt" aria-hidden="true">
-    <h4>Sumaya Osman</h4>
-    <div class="sm">LONDON · APPLICANT COPY</div>
+    <h4>Ticket 4417</h4>
+    <div class="sm">SAT 13:42 · TERMINAL OFFLINE</div>
     <hr>
-    <div class="r"><span>Quota at Aircall</span><b>130%</b></div>
-    <div class="r"><span>Add-on rate, Apple</span><b>56%</b></div>
-    <div class="r"><span>Travelway campaign</span><b>£50,000+</b></div>
-    <div class="r"><span>Charity, in 3 days</span><b>£2,000+</b></div>
-    <div class="r"><span>Degree</span><b>First Class</b></div>
+    <div class="r"><span>Queue at the till</span><b>Yes</b></div>
+    <div class="r"><span>First reply</span><b>2 min</b></div>
+    <div class="r"><span>Taking money again</span><b>9 min</b></div>
+    <div class="r"><span>Root cause found</span><b>After the rush</b></div>
+    <div class="r"><span>Rang back about it</span><b>No</b></div>
     <hr>
-    <div class="r"><span class="tot">Years in sales</span><b class="tot">Not many</b></div>
-    <div class="appr">— APPROVED ANYWAY —</div>
+    <div class="r"><span class="tot">Lunch service</span><b class="tot">Saved</b></div>
+    <div class="appr">— RESOLVED —</div>
   </aside>
 
   <div class="wrap">
-    <div class="switch" id="switch" role="tablist" aria-label="Which role">
-      <span class="thumb" id="thumb"></span>
-      <button role="tab" aria-selected="true" data-role="sales">Inside Sales Rep</button>
-      <button role="tab" aria-selected="false" data-role="support">Customer Support Agent</button>
-    </div>
+    <h1 id="h1" data-lines="A dead terminal on a Saturday |is not a ticket. It is a queue."></h1>
 
-    <h1 id="h1" data-sales="Nobody thanks the card machine. |They thank whoever picked up the phone."
-                data-support="Nobody thanks the card machine. |They thank whoever picked up the phone."></h1>
-
-    <p class="lede" id="lede"></p>
+    <p class="lede" id="lede">I&#39;m Sumaya. I sell phone systems to small businesses at Aircall, and a good part of that day is support that is not strictly my job — onboarding, KYB checks, showing someone where a setting lives. I&#39;m applying for the Customer Support seat.</p>
     <div class="acts">
       <a class="cta mag" href="#reviews">Start with your reviews <i>↓</i></a>
       <a class="cta ghost mag" href="#numbers">The numbers</a>
@@ -264,7 +246,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
       <h2 class="rv">I read two thousand of your reviews <s>before I wrote any of this.</s></h2>
       <p class="sub rv">Not the product pages. The Trustpilot ones. I expected people to talk about the rate, because that is the thing you advertise. Almost nobody does.</p>
       <p class="sub rv">They write about a person. By name. Someone turned up, set the thing up, sorted the rate, left. <b>Your merchants are not reviewing a terminal. They are reviewing whoever they dealt with.</b></p>
-      <p class="sub rv">That is the whole job, and it is the same job on both of the roles I am applying for. Sell it or support it, the merchant remembers the human.</p>
+      <p class="sub rv">That is the job I am applying for. Nobody rings support to chat. They ring because something they paid for has stopped working in front of a customer, and the next voice decides how that goes.</p>
     </div>
     <div class="quotes">
       <div class="q rv d1">"<strong>Eric</strong> was very helpful, gave a great rate and set-up terminal start to finish."<span class="who">Flatpay · Trustpilot</span></div>
@@ -284,16 +266,16 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
       <div class="m"><div class="n" data-to="50" data-pre="£" data-suf="k+">£0</div><p><b>at Travelway</b>, on a campaign that was forecast to lose money.</p></div>
       <div class="m"><div class="n" data-to="2000" data-pre="£">£0</div><p><b>raised in three days</b> for charity with my society.</p></div>
     </div>
-    <p class="sub rv" id="numnote" style="margin-top:32px;max-width:40rem"></p>
+    <p class="sub rv" style="margin-top:32px;max-width:40rem">Support has targets too, they are just different ones. The part of my job that maps closest is <b>activation</b>: customers who bought the thing and never switched it on properly. Nobody opens a ticket for that. You have to ring them.</p>
   </div>
 </section>
 
 <section id="first">
   <div class="wrap">
     <div class="eyebrow rv"><span class="bar2"></span><span class="mono">03 — The first five minutes</span></div>
-    <h2 class="rv" id="firsth2"></h2>
-    <p class="sub rv" id="firstsub"></p>
-    <div class="call" id="steps"></div>
+    <h2 class="rv">A merchant rings at Saturday lunch. <s>Their terminal will not connect.</s></h2>
+    <p class="sub rv">Queue at the till, card machine dead, and I am the next voice they hear. The order I would work in.</p>
+    <div class="call"><div class="step rv"><span class="ix">01 — SAY THE TIMEFRAME</span><h3>Tell them what happens now</h3><p>Panic is mostly not knowing. <em>"I&#39;ve got you. Two minutes of questions, then I&#39;ll tell you if this is a five-minute fix or a new unit."</em></p></div><div class="step rv d1"><span class="ix">02 — GET THEM TAKING MONEY</span><h3>Workaround before diagnosis</h3><p>The till is the emergency. Anything that takes a payment in the next ten minutes comes first. Root cause can wait until the rush is over.</p></div><div class="step rv d2"><span class="ix">03 — FIX IT, THEN EXPLAIN IT</span><h3>Once, in plain words</h3><p>I run KYB and KYC checks at Aircall and build FAQ flows by industry. If someone rings back about the same thing, I explained it badly the first time.</p></div><div class="step rv d3"><span class="ix">04 — CLOSE THE LOOP</span><h3>Tell whoever needs to know</h3><p>Three merchants ringing about the same thing in a week is not three tickets. It is one product problem. I took one of those to the team at OdjoAI and it shipped as a fix.</p></div></div>
   </div>
 </section>
 
@@ -305,15 +287,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
       <div class="v rv"><h4>Start With No</h4><p>Most of my week now is re-engagement. I ring people who already said no. Turns out a no is usually about the month, or the person who answered, and almost never about the thing itself.</p></div>
       <div class="v rv"><h4>It's Our Business, Own It</h4><p>At OdjoAI I built the CRM the founders ran the company on. At Travelway I wrote the proposal, picked the audience and sat through the review. It went from a forecast loss to £50,000+.</p></div>
       <div class="v rv"><h4>The Best Argument Wins</h4><p>Customers at OdjoAI kept hitting the same snag. I took it to the product team instead of logging it. It ended up in a feature that shipped. I was the intern.</p></div>
-      <div class="v rv"><h4>Sky-High Ambitions</h4><p>You went from 7,000 merchants to around 60,000 in eighteen months, and you want another 300% this year. I would rather be judged on a number than protect a job title, which is why I am applying for a phone seat.</p></div>
+      <div class="v rv"><h4>Sky-High Ambitions</h4><p>You went from 7,000 merchants to around 60,000 in eighteen months, and you want another 300% this year. I would rather be judged on a number than protect a job title, which is why I am applying for a seat on the lines.</p></div>
     </div>
   </div>
 </section>
 
 <section class="end">
   <div class="wrap">
-    <h2 class="rv" id="endh2"></h2>
-    <p class="sub rv" id="endsub"></p>
+    <h2 class="rv">Put me<br>on the lines.</h2>
+    <p class="sub rv">Five days in White City is a straight run for me, and I&#39;m happy to start on the hardest shift you have.</p>
     <div class="rv"><a class="cta mag" href="mailto:sumayaosman644@gmail.com?subject=Flatpay%20application%20%E2%80%94%20Sumaya%20Osman">sumayaosman644@gmail.com <i>↗</i></a></div>
   </div>
 </section>
@@ -328,84 +310,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 (function(){
 var rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* ── content for each role ─────────────────────────── */
-var ROLES = {
-  sales: {
-    lede: "I'm Sumaya. I sell phone systems to small businesses at Aircall, across the UK, Ireland and the Nordics, and I'm at <b>130% of target</b> four months in. I'm applying for the Inside Sales seat in White City.",
-    numnote: "The newest bit of my job is <b>re-engagement and activation</b> — ringing leads that went quiet and customers who never properly switched the thing on. Nearly everyone I call has already said no once. That is the closest thing I have to your floor.",
-    h2: 'How I would open a call with <s>a café that already has a terminal.</s>',
-    sub: "Not a script. The order I would go in, and roughly what I would say.",
-    steps: [
-      ['01 — EARN THE MINUTE','Say why I rang, immediately','No warm-up. <em>"I\'ll be ninety seconds. You already take cards. I want to know what you pay for it."</em>'],
-      ['02 — ASK BEFORE I PITCH','Find the number they do not know','Most owners cannot tell you their effective rate. The statement is built so they cannot. <em>"What did you actually pay in card fees last month?"</em>'],
-      ['03 — LET THE MATHS TALK','Their figure against one flat rate','1.69%, or 0.99% once they are past £200k of turnover. If the arithmetic is on my side I do not need adjectives.'],
-      ['04 — TAKE THE NO PROPERLY','Book it, or find out when','If it is not now I want the reason and a date. A no with a reason is a diary entry. <em>"Who else would need to be in the room?"</em>']
-    ],
-    end: 'Give me<br>a phone.',
-    endsub: "Five days in White City is a straight run for me, and I'm ready for the live sales exercise. I built an app to practise them."
-  },
-  support: {
-    lede: "I'm Sumaya. I sell phone systems to small businesses at Aircall and I spend a lot of that day doing support that isn't strictly my job — onboarding, KYB checks, showing people where a setting lives. I'm applying for the Customer Support seat.",
-    numnote: "Targets matter in support too, they are just different ones. The part of my job that maps closest is <b>activation</b>: customers who bought the thing and never switched it on properly. Nobody opens a ticket for that. You have to ring them.",
-    h2: 'A merchant rings on a Saturday. <s>Their terminal will not connect.</s>',
-    sub: "Saturday lunch, queue at the till, card machine dead. Here is the order I would work in.",
-    steps: [
-      ['01 — SAY THE TIMEFRAME','Tell them what happens now','Panic is about not knowing. <em>"I\'ve got you. Two minutes of questions, then I\'ll tell you if this is a five-minute fix or a new unit."</em>'],
-      ['02 — GET THEM TAKING MONEY','Workaround before diagnosis','The till is the emergency. Anything that takes a payment today comes first. The root cause can wait until the lunch rush is over.'],
-      ['03 — FIX IT, THEN EXPLAIN IT','Once, in plain words','I do KYB and KYC checks at Aircall and build FAQ flows by industry. If someone has to ring back about the same thing, I explained it badly.'],
-      ['04 — CLOSE THE LOOP','Tell whoever needs to know','If three merchants ring about the same thing in a week, that is not three tickets, it is one product problem. At OdjoAI I took one of those to the team and it shipped as a fix.']
-    ],
-    end: 'Put me<br>on the lines.',
-    endsub: "Five days in White City is a straight run for me, and I'm happy to start on the hardest shift you have."
-  }
-};
 
-/* ── role switch ───────────────────────────────────── */
-var sw=document.getElementById('switch'), thumb=document.getElementById('thumb'),
-    btns=[].slice.call(sw.querySelectorAll('button')), current='sales';
-var slots={lede:'lede',numnote:'numnote',firsth2:'h2',firstsub:'sub',endh2:'end',endsub:'endsub'};
-
-function paint(role, animate){
-  var d=ROLES[role];
-  var els=[document.getElementById('lede'),document.getElementById('numnote'),
-           document.getElementById('firsth2'),document.getElementById('firstsub'),
-           document.getElementById('endh2'),document.getElementById('endsub'),
-           document.getElementById('steps')];
-  function set(){
-    document.getElementById('lede').innerHTML=d.lede;
-    document.getElementById('numnote').innerHTML=d.numnote;
-    document.getElementById('firsth2').innerHTML=d.h2;
-    document.getElementById('firstsub').innerHTML=d.sub;
-    document.getElementById('endh2').innerHTML=d.end;
-    document.getElementById('endsub').innerHTML=d.endsub;
-    document.getElementById('steps').innerHTML=d.steps.map(function(s,i){
-      return '<div class="step rv in'+(i?' d'+i:'')+'"><span class="ix">'+s[0]+'</span><h3>'+s[1]+'</h3><p>'+s[2]+'</p></div>';
-    }).join('');
-  }
-  if(!animate||rm){ set(); return; }
-  els.forEach(function(e){ e.classList.add('swapping'); });
-  setTimeout(function(){ set(); els.forEach(function(e){ e.classList.remove('swapping'); }); }, 230);
-}
-function moveThumb(btn){ thumb.style.width=btn.offsetWidth+'px'; thumb.style.transform='translateX('+(btn.offsetLeft-4)+'px)'; }
-btns.forEach(function(b){
-  b.addEventListener('click', function(){
-    if(b.dataset.role===current) return;
-    btns.forEach(function(x){ x.setAttribute('aria-selected', x===b?'true':'false'); });
-    current=b.dataset.role; moveThumb(b); paint(current,true);
-  });
-});
-paint('sales',false);
-function sizeThumb(){ moveThumb(btns.filter(function(b){return b.getAttribute('aria-selected')==='true';})[0]); }
-requestAnimationFrame(sizeThumb);
-if(document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ requestAnimationFrame(sizeThumb); });
-addEventListener('load', sizeThumb);
-setTimeout(sizeThumb, 900);
-addEventListener('resize', sizeThumb);
 
 /* ── headline: per-word blur in ────────────────────── */
 var h1=document.getElementById('h1');
 (function(){
-  var txt=h1.dataset.sales.split('|'), html='';
+  var txt=h1.dataset.lines.split('|'), html='';
   txt.forEach(function(line,li){
     html+='<span style="display:block">';
     line.trim().split(' ').forEach(function(w,i){
@@ -419,8 +329,8 @@ var h1=document.getElementById('h1');
 })();
 
 /* ── marquee: their words, from the ad ─────────────── */
-var T=['Speed wins on inbound','Ask before you pitch','Resilience','Coachability','24/7 human support',
-       '1.69% flat','0.99% over £200k','No surprises','Happy Humans','Start With No','The Best Argument Wins'];
+var T=['24/7 human support','No surprises','Resilience','Coachability','Happy Humans','No Assholes',
+       'Make a sale in 5 seconds','One flat rate','The Best Argument Wins','Own it','Answer fast'];
 document.getElementById('tr').innerHTML=(function(){
   var h=T.map(function(t){ return '<span>'+t+' <em>◆</em></span>'; }).join('');
   return h+h;
