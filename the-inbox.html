@@ -132,37 +132,34 @@ h2 s{text-decoration:none;color:var(--ink2)}
 .step:after{content:"";position:absolute;right:-26px;bottom:-26px;width:76px;height:86px;
   background:var(--zap);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);opacity:.5}
 
-/* 04 chapters */
-.chap{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(26px,4vw,56px);align-items:start;margin-top:36px}
-.ct{font-family:M,monospace;font-size:12px;letter-spacing:.14em;margin-bottom:10px;color:var(--ink2)}
-.ct b{color:var(--ink)}
-.clist{list-style:none;margin:0;padding:0;border-top:1.5px solid var(--ink)}
-.clist button{all:unset;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;
-  gap:14px;width:100%;padding:15px 2px;border-bottom:1px solid var(--line);cursor:pointer;
-  font-size:19px;color:var(--ink2);transition:color .3s,padding-left .3s var(--e)}
-.clist button:hover{color:var(--ink);padding-left:7px}
-.clist button[aria-current="true"]{color:var(--ink);font-weight:600}
-.clist button em{font-style:normal;font-family:M,monospace;font-size:11px;color:var(--ink2)}
-.clist button[aria-current="true"] em{background:var(--zap);border:1.5px solid var(--ink);
-  border-radius:999px;padding:1px 8px}
-.cnote{margin:18px 0 0;font-size:15px;color:var(--ink2);min-height:3em}
-.cnote b{color:var(--ink);font-weight:600}
-.cmedia{position:relative;margin:0;aspect-ratio:16/11.6;max-width:100%}
-.lay{position:absolute;margin:0;width:84%;background:var(--paper);border:1.5px solid var(--ink);
-  border-radius:16px;padding:11px;overflow:hidden;
-  transition:transform .8s cubic-bezier(.34,1.25,.64,1),opacity .45s}
-.lay img{width:100%;height:clamp(200px,24vw,300px);object-fit:contain;border-radius:8px;display:block}
-.lay-b{right:0;top:0;transform:rotate(4.5deg);box-shadow:5px 5px 0 rgba(17,17,16,.16)}
-.lay-a{left:0;bottom:0;z-index:2;transform:rotate(-3deg);box-shadow:8px 8px 0 var(--ink)}
-.cmedia:hover .lay-b{transform:rotate(8deg) translate(3%,-3%)}
-.cmedia:hover .lay-a{transform:rotate(-5.5deg) translate(-3%,2%)}
-.cstamp{position:absolute;z-index:3;right:3%;bottom:-3%;width:96px;height:96px;border-radius:50%;
-  background:var(--zap);border:1.5px solid var(--ink);display:grid;place-content:center;text-align:center;
-  font-family:G,sans-serif;font-weight:700;font-size:13px;line-height:1.08;letter-spacing:-.01em;
-  padding:0 7px;transform:rotate(-9deg);box-shadow:4px 4px 0 var(--ink)}
-.cstamp:empty{display:none}
-.cstamp small{display:block;font-family:M,monospace;font-weight:400;font-size:8px;letter-spacing:.14em;
-  text-transform:uppercase;opacity:.75;margin-bottom:2px}
+/* 04 work grid */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}
+.wcard{background:var(--paper);border:1.5px solid var(--ink);border-radius:18px;overflow:hidden;
+  display:flex;flex-direction:column;transition:transform .3s var(--e),box-shadow .3s var(--e)}
+.wcard:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--ink)}
+.wcard .shot{position:relative;background:var(--cream);border-bottom:1.5px solid var(--ink);
+  height:190px;padding:13px;overflow:hidden}
+.wcard .shot img{width:100%;height:100%;object-fit:contain;border-radius:5px}
+.wcard .shot.tall img{object-fit:cover;object-position:top}
+.wcard .chip{position:absolute;top:10px;right:10px;background:var(--zap);border:1.5px solid var(--ink);
+  border-radius:999px;padding:2px 10px;font-family:M,monospace;font-size:10px;letter-spacing:.11em;
+  text-transform:uppercase}
+.wcard .body{padding:15px 17px 18px}
+.wcard h3{font-family:G,sans-serif;font-weight:700;font-size:17px;margin:0 0 6px;letter-spacing:-.015em}
+.wcard p{margin:0;font-size:14px;color:var(--ink2)}
+.wcard .k{display:block;margin-top:9px;font-family:M,monospace;font-size:10px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink2)}
+
+/* along the way */
+.along{margin-top:clamp(44px,6vw,70px);border-top:1.5px solid var(--ink);padding-top:26px}
+.along h3{font-family:G,sans-serif;font-weight:700;font-size:clamp(20px,2.4vw,28px);margin:0 0 4px;
+  letter-spacing:-.02em}
+.along .sub{margin:0 0 20px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none;padding:0;margin:0}
+.chips li{background:var(--paper);border:1.5px solid var(--ink);border-radius:999px;
+  padding:8px 15px;font-size:14px}
+.chips li b{font-weight:600}
+.chips li.hi{background:var(--zap)}
 
 /* 05 values */
 .vals{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:38px}
@@ -186,6 +183,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .rv.on{opacity:1;transform:none}
 .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
 
+@media(max-width:1100px){ .grid{grid-template-columns:repeat(2,1fr)} }
 @media(max-width:900px){
   nav .links{display:none}
   nav{padding:7px 7px 7px 16px}
@@ -194,7 +192,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   .card{position:static;width:100%;margin-top:34px;box-shadow:5px 5px 0 var(--ink);order:4}
   header .wrap{padding-right:0;display:flex;flex-direction:column}
   header h1{order:1} header .lede{order:2} header .acts{order:3}
-  .two,.steps,.vals,.chap{grid-template-columns:1fr}
+  .two,.steps,.vals{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr}
   .mx{grid-template-columns:repeat(2,1fr);gap:22px}
   h1{max-width:none}
 }
@@ -308,24 +307,39 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <section id="work">
   <div class="wrap">
     <div class="eyebrow rv"><span class="bar"></span><span class="mono">04 — The work</span></div>
-    <h2 class="rv">Four things I have actually <s>written, built or argued for.</s></h2>
-    <p class="sub rv">Pick one. The picture is the real thing, not a mockup of it.</p>
-    <div class="chap rv">
-      <div>
-        <div class="ct"><b id="cnum">01</b> / 04</div>
-        <ol class="clist" id="clist">
-          <li><button data-img="1f0f9c9c0442.jpg" data-stamp="" data-note="<b>Written so people stop asking me.</b> An onboarding deck for new society analysts, so they could find the answer themselves."><span>Onboarding deck</span><em>01</em></button></li>
-          <li><button data-img="9a3a7cce8b19.jpg" data-stamp="" data-note="<b>The support flow I designed.</b> What a good answer looks like before anyone has to ask twice."><span>A support flow</span><em>02</em></button></li>
-          <li><button data-img="5cb34c610653.jpg" data-stamp="OUTSTANDING" data-note="<b>Built and presented to IBM.</b> A prototype for an AI learning pathway. Graded Outstanding."><span>IBM prototype</span><em>03</em></button></li>
-          <li><button data-img="c05d51770593.jpg" data-stamp="£50k+" data-note="<b>Forecast to lose money.</b> I wrote the proposal, picked the audience and sat through the review. This is the summary."><span>Travelway campaign</span><em>04</em></button></li>
-        </ol>
-        <p class="cnote" id="cnote"></p>
-      </div>
-      <div class="cmedia">
-        <figure class="lay lay-b"><img id="cimg2" src="9a3a7cce8b19.jpg" alt=""></figure>
-        <figure class="lay lay-a"><img id="cimg" src="1f0f9c9c0442.jpg" alt="Work sample"></figure>
-        <span class="cstamp" id="cstamp"></span>
-      </div>
+    <h2 class="rv">Six things I have actually <s>written, built or argued for.</s></h2>
+    <p class="sub rv">Every picture is the real thing, not a mockup of it.</p>
+    <div class="grid">
+      <article class="wcard rv">
+        <div class="shot"><img src="1f0f9c9c0442.jpg" alt="Onboarding deck"></div>
+        <div class="body"><h3>Onboarding deck</h3><p>Written so people would stop asking me. New analysts could find the answer themselves.</p><span class="k">Queen Mary Islamic Finance Society</span></div>
+      </article>
+      <article class="wcard rv d1">
+        <div class="shot tall"><img src="9a3a7cce8b19.jpg" alt="A support flow"></div>
+        <div class="body"><h3>A support flow</h3><p>What a good answer looks like, mapped out before anyone has to ask twice.</p><span class="k">SustainQ, QIncubator</span></div>
+      </article>
+      <article class="wcard rv d2">
+        <div class="shot"><img src="b275f5a10501.jpg" alt="When AI should answer"></div>
+        <div class="body"><h3>When AI should answer</h3><p>My recommendations on where AI-drafted replies are safe, from a healthcare case study.</p><span class="k">Group case study</span></div>
+      </article>
+      <article class="wcard rv">
+        <div class="shot"><img src="5cb34c610653.jpg" alt="IBM prototype"><span class="chip">Outstanding</span></div>
+        <div class="body"><h3>IBM prototype</h3><p>A learning pathway built and presented to IBM. Teaching a system to people who have never seen it.</p><span class="k">IBM student consultancy</span></div>
+      </article>
+      <article class="wcard rv d1">
+        <div class="shot"><img src="c05d51770593.jpg" alt="Travelway campaign"><span class="chip">£50k+</span></div>
+        <div class="body"><h3>Travelway campaign</h3><p>Forecast to lose money. I wrote the proposal, picked the audience and sat through the review.</p><span class="k">Campaign lead</span></div>
+      </article>
+      <article class="wcard rv d2">
+        <div class="shot"><img src="a65a2afe628a.jpg" alt="Where the time goes"><span class="chip">82%</span></div>
+        <div class="body"><h3>Where the time goes</h3><p>Line balancing: finding the idle minutes in a process, then taking them out.</p><span class="k">Operations Management</span></div>
+      </article>
+    </div>
+
+    <div class="along rv">
+      <h3>Along the way</h3>
+      <p class="sub">The smaller proof. Things I picked up while doing the above.</p>
+      <ul class="chips"><li class="hi">First Class honours</li><li>Operations Management, 82%</li><li>Student Speaker, Employers' Address</li><li>RAG Contributor of the Year, nominated</li><li>Couch2Coder II, Bright Network</li><li>PwC &amp; EDI Future Leaders Programme</li><li>Level 2 Community Sports Leadership</li><li class="hi">English &middot; Somali &middot; Arabic</li></ul>
     </div>
   </div>
 </section>
@@ -409,36 +423,6 @@ function printCard(){
   rt.push(setTimeout(printCard, 600+rows.length*220+6000));
 }
 if(rm) rows.forEach(function(r){ r.classList.add('in'); }); else printCard();
-
-/* chapters */
-var btns=[].slice.call(document.querySelectorAll('#clist button'));
-var cimg=document.getElementById('cimg'), cimg2=document.getElementById('cimg2'), cnote=document.getElementById('cnote');
-function swap(el,src){ if(!src||el.getAttribute('src')===src) return; el.style.opacity=0;
-  var n=new Image(); n.onload=function(){ el.src=n.src; el.style.opacity=1; };
-  n.onerror=function(){ el.style.opacity=1; }; n.src=src; }
-var cnum=document.getElementById('cnum'), cstamp=document.getElementById('cstamp');
-var idx=-1, auto=0;
-function pick(i){
-  if(i===idx) return;
-  idx=i;
-  var b=btns[i];
-  btns.forEach(function(x){ x.setAttribute('aria-current','false'); });
-  b.setAttribute('aria-current','true');
-  cnum.textContent=('0'+(i+1)).slice(-2);
-  cnote.innerHTML=b.dataset.note||'';
-  var st=b.dataset.stamp||'';
-  cstamp.innerHTML=st?'<span><small>Result</small>'+st+'</span>':'';
-  var nb=btns[(i+1)%btns.length];
-  swap(cimg,b.dataset.img);
-  swap(cimg2,nb.dataset.img);
-}
-btns.forEach(function(b,i){
-  b.addEventListener('click',function(){ pick(i); stop(); });
-  b.addEventListener('mouseenter',function(){ pick(i); stop(); });
-});
-function stop(){ if(auto){ clearInterval(auto); auto=0; } }
-pick(0);
-if(!rm) auto=setInterval(function(){ pick((idx+1)%btns.length); },4200);
 
 /* hex field */
 var cv=document.getElementById('hex'), cx=cv.getContext('2d'), W=0,H=0,DPR=1,cells=[],t=0,hraf=0;
