@@ -58,7 +58,7 @@ nav.s{background:rgba(10,10,11,.62);backdrop-filter:blur(20px);-webkit-backdrop-
 .hero{position:relative;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;
   justify-content:flex-end;padding:124px 0 max(48px,env(safe-area-inset-bottom));overflow:hidden}
 .bgwrap{position:absolute;inset:0;z-index:0;background:radial-gradient(120% 90% at 70% 8%,#15171d 0%,#0a0a0c 46%,#060607 76%)}
-.bgwrap video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 50%;opacity:0;transform:scale(1.06)}
+.bgwrap vid-unused{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 50%;opacity:0;transform:scale(1.06)}
 .bgwrap video.on{opacity:.55;transform:scale(1);transition:opacity .5s linear,transform 1.8s var(--e)}
 .bgwrap::after{content:"";position:absolute;inset:0;
   background:linear-gradient(to top,#060607 0%,rgba(6,6,7,.74) 30%,rgba(6,6,7,.18) 64%,rgba(6,6,7,.5) 100%)}
@@ -109,6 +109,35 @@ h1 s{font-family:S;font-style:italic;text-decoration:none;color:hsl(var(--fg)/.6
 .receipt .appr{text-align:center;font-size:10px;letter-spacing:.2em;color:#0f8a52;padding:9px 0 20px;
   opacity:0;transition:opacity .4s}
 .receipt .appr.in{opacity:1}
+
+
+/* contactless field */
+.bgwrap canvas{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;
+  transition:opacity 1.2s var(--e)}
+.bgwrap canvas.on{opacity:1}
+
+/* evidence wall */
+.wall{margin-top:52px;position:relative;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.wall .row{display:flex;gap:18px;width:max-content;animation:wall 62s linear infinite}
+.wall .row.b{animation-duration:76s;animation-direction:reverse;margin-top:18px}
+.wall:hover .row{animation-play-state:paused}
+@keyframes wall{to{transform:translateX(-50%)}}
+.ev{flex:none;width:286px;border-radius:20px;overflow:hidden;background:#111114;border:1px solid var(--edge);
+  cursor:zoom-in;position:relative;transition:transform .45s var(--e),border-color .45s}
+.ev:hover{transform:translateY(-6px);border-color:hsl(var(--ok)/.45)}
+.ev img{display:block;width:100%;height:172px;object-fit:cover;object-position:top;background:#fff}
+.ev.fit img{object-fit:contain;background:#f2f1ee}
+.ev p{font-size:12.5px;line-height:1.45;color:hsl(var(--fg)/.6);padding:13px 15px;font-weight:300}
+.ev .stamp{position:absolute;top:11px;right:11px;font-family:M;font-size:9.5px;letter-spacing:.12em;
+  background:hsl(var(--ok));color:#07210f;padding:5px 9px;border-radius:999px;font-weight:600}
+.lb{position:fixed;inset:0;z-index:90;background:rgba(6,6,7,.93);backdrop-filter:blur(10px);
+  display:none;align-items:center;justify-content:center;flex-direction:column;padding:34px;cursor:zoom-out}
+.lb.on{display:flex;animation:fade .3s forwards}
+.lb img{max-width:92vw;max-height:78vh;border-radius:14px;background:#fff}
+.lb p{margin-top:18px;font-size:14.5px;color:hsl(var(--fg)/.7);max-width:620px;text-align:center;font-weight:300}
+@media(max-width:900px){.ev{width:230px}.ev img{height:142px}}
 
 /* sections */
 section{position:relative;padding:clamp(74px,10vw,132px) 0}
@@ -201,13 +230,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 
 <nav id="nav">
   <span class="mark"><b></b>Sumaya Osman</span>
-  <div class="links"><a href="#reviews">The reviews</a><a href="#numbers">Numbers</a><a href="#first">First contact</a><a href="#values">Values</a></div>
+  <div class="links"><a href="#reviews">The reviews</a><a href="#numbers">Numbers</a><a href="#first">First contact</a><a href="#proof">Proof</a><a href="#values">Values</a></div>
   <a class="cta mag" href="mailto:sumayaosman644@gmail.com?subject=Flatpay%20application%20%E2%80%94%20Sumaya%20Osman">Get in touch <i>↗</i></a>
 </nav>
 
 <header class="hero">
-  <div class="bgwrap"><video id="bgv" autoplay muted loop playsinline preload="auto"
-    src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260423_161253_c72b1869-400f-45ed-ac0c-52f68c2ed5bd.mp4"></video></div>
+  <div class="bgwrap"><canvas id="field" aria-hidden="true"></canvas></div>
   <div class="rule l"></div><div class="rule r"></div>
 
   <aside class="receipt" id="receipt" aria-hidden="true">
@@ -279,9 +307,18 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   </div>
 </section>
 
+<section id="proof">
+  <div class="wrap">
+    <div class="eyebrow rv"><span class="bar2"></span><span class="mono">05 — The receipts</span></div>
+    <h2 class="rv">Everything above, <s>with the working out.</s></h2>
+    <p class="sub rv">Real pieces from the jobs and projects on this page. Click any of them to see it properly.</p>
+  </div>
+  <div class="wall rv"><div class="row"><div class="ev " data-s="c05d51770593.jpg" data-c="Travelway campaign summary: the projected loss, and what it actually did."><span class="stamp">£50k+</span><img src="c05d51770593.jpg" alt="Travelway campaign summary: the projected loss, and what it actually did." loading="lazy"><p>Travelway campaign summary: the projected loss, and what it actually did.</p></div><div class="ev " data-s="5cb34c610653.jpg" data-c="IBM consultancy project: the Figma prototype I built and presented."><span class="stamp">OUTSTANDING</span><img src="5cb34c610653.jpg" alt="IBM consultancy project: the Figma prototype I built and presented." loading="lazy"><p>IBM consultancy project: the Figma prototype I built and presented.</p></div><div class="ev " data-s="2fa22406eee6.jpg" data-c="A blog post I wrote for OdjoAI on outreach to UK freelancers."><img src="2fa22406eee6.jpg" alt="A blog post I wrote for OdjoAI on outreach to UK freelancers." loading="lazy"><p>A blog post I wrote for OdjoAI on outreach to UK freelancers.</p></div><div class="ev " data-s="4b59484c2713.jpg" data-c="The Gap: our startup pitch deck for Startups and Incubators."><img src="4b59484c2713.jpg" alt="The Gap: our startup pitch deck for Startups and Incubators." loading="lazy"><p>The Gap: our startup pitch deck for Startups and Incubators.</p></div><div class="ev " data-s="c05d51770593.jpg" data-c="Travelway campaign summary: the projected loss, and what it actually did."><span class="stamp">£50k+</span><img src="c05d51770593.jpg" alt="Travelway campaign summary: the projected loss, and what it actually did." loading="lazy"><p>Travelway campaign summary: the projected loss, and what it actually did.</p></div><div class="ev " data-s="5cb34c610653.jpg" data-c="IBM consultancy project: the Figma prototype I built and presented."><span class="stamp">OUTSTANDING</span><img src="5cb34c610653.jpg" alt="IBM consultancy project: the Figma prototype I built and presented." loading="lazy"><p>IBM consultancy project: the Figma prototype I built and presented.</p></div><div class="ev " data-s="2fa22406eee6.jpg" data-c="A blog post I wrote for OdjoAI on outreach to UK freelancers."><img src="2fa22406eee6.jpg" alt="A blog post I wrote for OdjoAI on outreach to UK freelancers." loading="lazy"><p>A blog post I wrote for OdjoAI on outreach to UK freelancers.</p></div><div class="ev " data-s="4b59484c2713.jpg" data-c="The Gap: our startup pitch deck for Startups and Incubators."><img src="4b59484c2713.jpg" alt="The Gap: our startup pitch deck for Startups and Incubators." loading="lazy"><p>The Gap: our startup pitch deck for Startups and Incubators.</p></div></div><div class="row b"><div class="ev " data-s="337407cc689a.jpg" data-c="OdjoAI research: 68% of large companies use AI, against 25% of small businesses."><img src="337407cc689a.jpg" alt="OdjoAI research: 68% of large companies use AI, against 25% of small businesses." loading="lazy"><p>OdjoAI research: 68% of large companies use AI, against 25% of small businesses.</p></div><div class="ev " data-s="1f0f9c9c0442.jpg" data-c="Onboarding deck I wrote for new society analysts, with the metrics we tracked."><img src="1f0f9c9c0442.jpg" alt="Onboarding deck I wrote for new society analysts, with the metrics we tracked." loading="lazy"><p>Onboarding deck I wrote for new society analysts, with the metrics we tracked.</p></div><div class="ev " data-s="a65a2afe628a.jpg" data-c="Line balancing: idle time per workstation, before rebalancing to 87%."><span class="stamp">82%</span><img src="a65a2afe628a.jpg" alt="Line balancing: idle time per workstation, before rebalancing to 87%." loading="lazy"><p>Line balancing: idle time per workstation, before rebalancing to 87%.</p></div><div class="ev " data-s="e529c257ad9a.jpg" data-c="The IBM student consultancy brief and how we approached it."><img src="e529c257ad9a.jpg" alt="The IBM student consultancy brief and how we approached it." loading="lazy"><p>The IBM student consultancy brief and how we approached it.</p></div><div class="ev " data-s="337407cc689a.jpg" data-c="OdjoAI research: 68% of large companies use AI, against 25% of small businesses."><img src="337407cc689a.jpg" alt="OdjoAI research: 68% of large companies use AI, against 25% of small businesses." loading="lazy"><p>OdjoAI research: 68% of large companies use AI, against 25% of small businesses.</p></div><div class="ev " data-s="1f0f9c9c0442.jpg" data-c="Onboarding deck I wrote for new society analysts, with the metrics we tracked."><img src="1f0f9c9c0442.jpg" alt="Onboarding deck I wrote for new society analysts, with the metrics we tracked." loading="lazy"><p>Onboarding deck I wrote for new society analysts, with the metrics we tracked.</p></div><div class="ev " data-s="a65a2afe628a.jpg" data-c="Line balancing: idle time per workstation, before rebalancing to 87%."><span class="stamp">82%</span><img src="a65a2afe628a.jpg" alt="Line balancing: idle time per workstation, before rebalancing to 87%." loading="lazy"><p>Line balancing: idle time per workstation, before rebalancing to 87%.</p></div><div class="ev " data-s="e529c257ad9a.jpg" data-c="The IBM student consultancy brief and how we approached it."><img src="e529c257ad9a.jpg" alt="The IBM student consultancy brief and how we approached it." loading="lazy"><p>The IBM student consultancy brief and how we approached it.</p></div></div></div>
+</section>
+
 <section id="values">
   <div class="wrap">
-    <div class="eyebrow rv"><span class="bar2"></span><span class="mono">04 — Your values</span></div>
+    <div class="eyebrow rv"><span class="bar2"></span><span class="mono">06 — Your values</span></div>
     <h2 class="rv">Four of yours. <s>Where I actually sit.</s></h2>
     <div class="vals">
       <div class="v rv"><h4>Start With No</h4><p>Most of my week now is re-engagement. I ring people who already said no. Turns out a no is usually about the month, or the person who answered, and almost never about the thing itself.</p></div>
@@ -305,6 +342,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   <span>A personal application page. Not affiliated with or endorsed by Flatpay.</span>
 </div></footer>
 </div>
+<div class="lb" id="lb"><img alt=""><p></p></div>
 
 <script>
 (function(){
@@ -336,10 +374,81 @@ document.getElementById('tr').innerHTML=(function(){
   return h+h;
 })();
 
-/* ── video ─────────────────────────────────────────── */
-var v=document.getElementById('bgv');
-function showV(){ v.classList.add('on'); }
-if(v.readyState>=2) showV(); else v.addEventListener('loadeddata',showV,{once:true});
+
+
+/* ── contactless field: taps rippling across a dark grid ── */
+(function(){
+  var c=document.getElementById('field'); if(!c) return;
+  var ctx=c.getContext('2d'), w=0,h=0,dpr=Math.min(devicePixelRatio||1,2), raf=null;
+  var dots=[], taps=[], t0=performance.now();
+  function size(){
+    w=c.clientWidth; h=c.clientHeight;
+    c.width=Math.floor(w*dpr); c.height=Math.floor(h*dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    dots=[]; var gap=46;
+    for(var y=gap/2;y<h;y+=gap) for(var x=gap/2;x<w;x+=gap)
+      dots.push({x:x,y:y,p:Math.random()*Math.PI*2});
+  }
+  function tap(){
+    taps.push({x:Math.random()*w, y:Math.random()*h, t:performance.now(),
+               ok:Math.random()<0.3, life:2600+Math.random()*900});
+    if(taps.length>9) taps.shift();
+  }
+  function frame(now){
+    ctx.clearRect(0,0,w,h);
+    var el=(now-t0)/1000;
+    // drifting dot grid
+    for(var i=0;i<dots.length;i++){
+      var d=dots[i], a=.055+.045*Math.sin(el*.5+d.p);
+      ctx.fillStyle='rgba(255,255,255,'+a.toFixed(3)+')';
+      ctx.fillRect(d.x+Math.sin(el*.22+d.p)*1.6, d.y+Math.cos(el*.18+d.p)*1.6, 1.4, 1.4);
+    }
+    // contactless ripples
+    for(var j=taps.length-1;j>=0;j--){
+      var tp=taps[j], age=(now-tp.t)/tp.life;
+      if(age>=1){ taps.splice(j,1); continue; }
+      var ease=1-Math.pow(1-age,2.4);
+      for(var k=0;k<3;k++){
+        var off=k*0.17, p=ease-off; if(p<=0) continue;
+        var r=p*260, al=(1-age)*(1-k*0.22)*0.72;
+        ctx.beginPath(); ctx.arc(tp.x,tp.y,r,-0.95,0.95);
+        ctx.strokeStyle = tp.ok ? 'rgba(0,224,122,'+(al*0.9).toFixed(3)+')'
+                                : 'rgba(255,255,255,'+(al*0.42).toFixed(3)+')';
+        ctx.lineWidth=1.5; ctx.stroke();
+      }
+      var cr=(1-age)*3.2;
+      if(cr>0){ ctx.beginPath(); ctx.arc(tp.x,tp.y,cr,0,6.284);
+        ctx.fillStyle = tp.ok ? 'rgba(0,224,122,'+(1-age).toFixed(3)+')'
+                              : 'rgba(255,255,255,'+((1-age)*.6).toFixed(3)+')'; ctx.fill(); }
+    }
+    raf=requestAnimationFrame(frame);
+  }
+  size(); addEventListener('resize', size);
+  c.classList.add('on');
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){
+    for(var n=0;n<3;n++) tap();
+    requestAnimationFrame(function(now){ frame(now); cancelAnimationFrame(raf); });
+    return;
+  }
+  for(var n=0;n<2;n++) tap();
+  setInterval(tap, 820);
+  raf=requestAnimationFrame(frame);
+  document.addEventListener('visibilitychange',function(){
+    if(document.hidden){ cancelAnimationFrame(raf); } else { raf=requestAnimationFrame(frame); }
+  });
+})();
+
+/* ── evidence lightbox ── */
+(function(){
+  var lb=document.getElementById('lb'); if(!lb) return;
+  var im=lb.querySelector('img'), cp=lb.querySelector('p');
+  document.addEventListener('click',function(e){
+    var ev=e.target.closest('.ev');
+    if(ev){ im.src=ev.dataset.s; im.alt=ev.dataset.c; cp.textContent=ev.dataset.c; lb.classList.add('on'); return; }
+    if(e.target.closest('#lb')) lb.classList.remove('on');
+  });
+  addEventListener('keydown',function(e){ if(e.key==='Escape') lb.classList.remove('on'); });
+})();
 
 /* ── receipt prints itself ─────────────────────────── */
 var rows=[].slice.call(document.querySelectorAll('.receipt .r')), appr=document.querySelector('.receipt .appr'), rt=[];
