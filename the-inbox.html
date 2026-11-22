@@ -147,13 +147,22 @@ h2 s{text-decoration:none;color:var(--ink2)}
   border-radius:999px;padding:1px 8px}
 .cnote{margin:18px 0 0;font-size:15px;color:var(--ink2);min-height:3em}
 .cnote b{color:var(--ink);font-weight:600}
-.cmedia{position:relative;margin:0;background:var(--paper);border:1.5px solid var(--ink);
-  border-radius:18px;padding:14px;box-shadow:7px 7px 0 var(--ink);overflow:hidden}
-.cmedia img{width:100%;height:clamp(260px,32vw,400px);object-fit:contain;border-radius:8px;
-  transition:opacity .4s}
-.cstamp{position:absolute;top:22px;right:22px;background:var(--zap);border:1.5px solid var(--ink);
-  border-radius:999px;padding:3px 11px;font-family:M,monospace;font-size:11px;letter-spacing:.1em}
+.cmedia{position:relative;margin:0;aspect-ratio:16/11.6;max-width:100%}
+.lay{position:absolute;margin:0;width:84%;background:var(--paper);border:1.5px solid var(--ink);
+  border-radius:16px;padding:11px;overflow:hidden;
+  transition:transform .8s cubic-bezier(.34,1.25,.64,1),opacity .45s}
+.lay img{width:100%;height:clamp(200px,24vw,300px);object-fit:contain;border-radius:8px;display:block}
+.lay-b{right:0;top:0;transform:rotate(4.5deg);box-shadow:5px 5px 0 rgba(17,17,16,.16)}
+.lay-a{left:0;bottom:0;z-index:2;transform:rotate(-3deg);box-shadow:8px 8px 0 var(--ink)}
+.cmedia:hover .lay-b{transform:rotate(8deg) translate(3%,-3%)}
+.cmedia:hover .lay-a{transform:rotate(-5.5deg) translate(-3%,2%)}
+.cstamp{position:absolute;z-index:3;right:3%;bottom:-3%;width:96px;height:96px;border-radius:50%;
+  background:var(--zap);border:1.5px solid var(--ink);display:grid;place-content:center;text-align:center;
+  font-family:G,sans-serif;font-weight:700;font-size:13px;line-height:1.08;letter-spacing:-.01em;
+  padding:0 7px;transform:rotate(-9deg);box-shadow:4px 4px 0 var(--ink)}
 .cstamp:empty{display:none}
+.cstamp small{display:block;font-family:M,monospace;font-weight:400;font-size:8px;letter-spacing:.14em;
+  text-transform:uppercase;opacity:.75;margin-bottom:2px}
 
 /* 05 values */
 .vals{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:38px}
@@ -312,10 +321,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
         </ol>
         <p class="cnote" id="cnote"></p>
       </div>
-      <figure class="cmedia">
-        <img id="cimg" src="1f0f9c9c0442.jpg" alt="Work sample">
+      <div class="cmedia">
+        <figure class="lay lay-b"><img id="cimg2" src="9a3a7cce8b19.jpg" alt=""></figure>
+        <figure class="lay lay-a"><img id="cimg" src="1f0f9c9c0442.jpg" alt="Work sample"></figure>
         <span class="cstamp" id="cstamp"></span>
-      </figure>
+      </div>
     </div>
   </div>
 </section>
@@ -341,8 +351,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 </section>
 
 <footer><div class="wrap">
-  <span>Sumaya Osman · West London · 07514620331</span>
-  <span>A personal page, written for one job. Not affiliated with or endorsed by any company.</span>
+  <span>Sumaya Osman</span>
+  <span>sumayaosman644@gmail.com</span>
 </div></footer>
 
 <script>
@@ -402,7 +412,10 @@ if(rm) rows.forEach(function(r){ r.classList.add('in'); }); else printCard();
 
 /* chapters */
 var btns=[].slice.call(document.querySelectorAll('#clist button'));
-var cimg=document.getElementById('cimg'), cnote=document.getElementById('cnote');
+var cimg=document.getElementById('cimg'), cimg2=document.getElementById('cimg2'), cnote=document.getElementById('cnote');
+function swap(el,src){ if(!src||el.getAttribute('src')===src) return; el.style.opacity=0;
+  var n=new Image(); n.onload=function(){ el.src=n.src; el.style.opacity=1; };
+  n.onerror=function(){ el.style.opacity=1; }; n.src=src; }
 var cnum=document.getElementById('cnum'), cstamp=document.getElementById('cstamp');
 var idx=-1, auto=0;
 function pick(i){
@@ -413,12 +426,11 @@ function pick(i){
   b.setAttribute('aria-current','true');
   cnum.textContent=('0'+(i+1)).slice(-2);
   cnote.innerHTML=b.dataset.note||'';
-  cstamp.textContent=b.dataset.stamp||'';
-  cimg.style.opacity=0;
-  var n=new Image();
-  n.onload=function(){ cimg.src=n.src; cimg.style.opacity=1; };
-  n.onerror=function(){ cimg.style.opacity=1; };
-  n.src=b.dataset.img;
+  var st=b.dataset.stamp||'';
+  cstamp.innerHTML=st?'<span><small>Result</small>'+st+'</span>':'';
+  var nb=btns[(i+1)%btns.length];
+  swap(cimg,b.dataset.img);
+  swap(cimg2,nb.dataset.img);
 }
 btns.forEach(function(b,i){
   b.addEventListener('click',function(){ pick(i); stop(); });
