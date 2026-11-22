@@ -124,20 +124,20 @@ h1 s{font-family:S;font-style:italic;text-decoration:none;color:hsl(var(--fg)/.6
 .chap{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(34px,6vw,76px);align-items:center;margin-top:46px}
 @media(max-width:900px){.chap{grid-template-columns:1fr;gap:30px}}
 .chap__media{position:relative;aspect-ratio:4/3;margin:0;display:grid;place-items:center;border-radius:24px;
-  overflow:hidden;background:#0e0e11;border:1px solid var(--edge);order:2}
+  overflow:hidden;background:#f4f3ef;border:1px solid var(--edge);order:2;padding:14px}
 @media(max-width:900px){.chap__media{order:1}}
-.chap__media img{width:100%;height:100%;object-fit:cover;object-position:top;background:#fff}
-.chap__media.fit img{object-fit:contain;background:#f2f1ee}
-.chap__glow{position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(120% 90% at 50% 0%,hsl(var(--ok)/.1),transparent 62%);mix-blend-mode:screen}
+.chap__media img{width:100%;height:100%;object-fit:contain;object-position:center;background:transparent;border-radius:10px}
+
+.chap__glow{position:absolute;inset:0;pointer-events:none;border-radius:24px;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.06),0 30px 70px rgba(0,0,0,.45)}
 .chap__stamp{position:absolute;top:14px;right:14px;z-index:3;font-family:M;font-size:10px;letter-spacing:.13em;
   background:hsl(var(--ok));color:#07210f;padding:6px 11px;border-radius:999px;font-weight:600;
   opacity:0;transition:opacity .4s}
 .chap__stamp.on{opacity:1}
-.chap__zoom{position:absolute;bottom:14px;right:14px;z-index:3;width:38px;height:38px;border-radius:50%;
-  background:rgba(10,10,12,.6);backdrop-filter:blur(10px);border:1px solid var(--edge);display:grid;place-items:center;
-  color:hsl(var(--fg)/.9);cursor:zoom-in;font-size:14px;transition:background .3s,transform .3s var(--e)}
-.chap__zoom:hover{background:rgba(255,255,255,.16);transform:scale(1.08)}
+.chap__zoom{position:absolute;bottom:12px;right:12px;z-index:3;width:38px;height:38px;border-radius:50%;
+  background:rgba(10,10,12,.78);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;
+  color:#fff;cursor:zoom-in;font-size:14px;transition:background .3s,transform .3s var(--e)}
+.chap__zoom:hover{background:rgba(10,10,12,.95);transform:scale(1.08)}
 .chap__side{order:1}@media(max-width:900px){.chap__side{order:2}}
 .chap__ct{font-family:M;font-size:11px;letter-spacing:.2em;color:hsl(var(--fg)/.45);margin-bottom:20px}
 .roll{display:inline-block;overflow:hidden;vertical-align:bottom;height:1em}
@@ -376,7 +376,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 <section class="end">
   <div class="wrap">
     <h2 class="rv">Put me<br>on the lines.</h2>
-    <p class="sub rv">Five days in White City is a straight run for me, and I&#39;m happy to start on the hardest shift you have.</p>
+    <p class="sub rv">I&#39;m in West London, so White City is an easy commute. I don&#39;t mind weekends — that is when the calls that matter come in.</p>
     <div class="rv"><a class="cta mag" href="mailto:sumayaosman644@gmail.com?subject=Application%20%E2%80%94%20Sumaya%20Osman">sumayaosman644@gmail.com <i>↗</i></a></div>
   </div>
 </section>
