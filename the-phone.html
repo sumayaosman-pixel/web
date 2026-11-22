@@ -116,28 +116,38 @@ h1 s{font-family:S;font-style:italic;text-decoration:none;color:hsl(var(--fg)/.6
   transition:opacity 1.2s var(--e)}
 .bgwrap canvas.on{opacity:1}
 
-/* evidence wall */
-.wall{margin-top:52px;position:relative;overflow:hidden;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
-  mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
-.wall .row{display:flex;gap:18px;width:max-content;animation:wall 62s linear infinite}
-.wall .row.b{animation-duration:76s;animation-direction:reverse;margin-top:18px}
-.wall:hover .row{animation-play-state:paused}
-@keyframes wall{to{transform:translateX(-50%)}}
-.ev{flex:none;width:286px;border-radius:20px;overflow:hidden;background:#111114;border:1px solid var(--edge);
-  cursor:zoom-in;position:relative;transition:transform .45s var(--e),border-color .45s}
-.ev:hover{transform:translateY(-6px);border-color:hsl(var(--ok)/.45)}
-.ev img{display:block;width:100%;height:172px;object-fit:cover;object-position:top;background:#fff}
-.ev.fit img{object-fit:contain;background:#f2f1ee}
-.ev p{font-size:12.5px;line-height:1.45;color:hsl(var(--fg)/.6);padding:13px 15px;font-weight:300}
-.ev .stamp{position:absolute;top:11px;right:11px;font-family:M;font-size:9.5px;letter-spacing:.12em;
-  background:hsl(var(--ok));color:#07210f;padding:5px 9px;border-radius:999px;font-weight:600}
-.lb{position:fixed;inset:0;z-index:90;background:rgba(6,6,7,.93);backdrop-filter:blur(10px);
-  display:none;align-items:center;justify-content:center;flex-direction:column;padding:34px;cursor:zoom-out}
-.lb.on{display:flex;animation:fade .3s forwards}
-.lb img{max-width:92vw;max-height:78vh;border-radius:14px;background:#fff}
-.lb p{margin-top:18px;font-size:14.5px;color:hsl(var(--fg)/.7);max-width:620px;text-align:center;font-weight:300}
-@media(max-width:900px){.ev{width:230px}.ev img{height:142px}}
+
+
+/* evidence stack */
+.proofgrid{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(34px,6vw,86px);align-items:center;margin-top:12px}
+@media(max-width:900px){.proofgrid{grid-template-columns:1fr;gap:38px}}
+.stack{position:relative;width:100%;aspect-ratio:4/3;perspective:1400px;cursor:pointer;user-select:none;touch-action:pan-y}
+.card{position:absolute;inset:0;border-radius:22px;overflow:hidden;background:#111114;
+  border:1px solid var(--edge);box-shadow:0 34px 70px rgba(0,0,0,.55);
+  transition:transform .66s var(--e),opacity .5s var(--e),filter .66s var(--e);will-change:transform}
+.card img{display:block;width:100%;height:100%;object-fit:cover;object-position:top;background:#fff}
+.card.fit img{object-fit:contain;background:#f2f1ee}
+.card .stamp{position:absolute;top:14px;right:14px;font-family:M;font-size:10px;letter-spacing:.13em;
+  background:hsl(var(--ok));color:#07210f;padding:6px 11px;border-radius:999px;font-weight:600;
+  box-shadow:0 8px 22px rgba(0,0,0,.4)}
+.card .zoom{position:absolute;bottom:14px;right:14px;width:34px;height:34px;border-radius:50%;
+  background:rgba(10,10,12,.62);backdrop-filter:blur(10px);border:1px solid var(--edge);
+  display:grid;place-items:center;font-size:13px;color:hsl(var(--fg)/.9);opacity:0;transition:opacity .35s}
+.stack:hover .card[data-i="0"] .zoom{opacity:1}
+.card.out{transform:translateX(42%) rotate(9deg) scale(.92)!important;opacity:0!important}
+.proofmeta .ct{font-family:M;font-size:11.5px;letter-spacing:.22em;color:hsl(var(--ok));margin-bottom:16px}
+.proofmeta .cap{font-size:17px;line-height:1.6;font-weight:300;color:hsl(var(--fg)/.72);min-height:5.2em;
+  transition:opacity .3s,transform .3s}
+.proofmeta .cap b{color:hsl(var(--fg));font-weight:500}
+.proofmeta .cap.sw{opacity:0;transform:translateY(8px)}
+.sctl{display:flex;gap:10px;margin-top:26px;align-items:center}
+.sctl button{width:46px;height:46px;border-radius:50%;border:1px solid var(--edge);background:var(--glass);
+  color:hsl(var(--fg));cursor:pointer;font-size:15px;transition:background .3s,border-color .3s,transform .3s var(--e)}
+.sctl button:hover{background:rgba(255,255,255,.12);border-color:hsl(var(--ok)/.5);transform:translateY(-2px)}
+.sctl button:active{transform:scale(.94)}
+.sctl .dots{display:flex;gap:7px;margin-left:10px}
+.sctl .dots i{width:6px;height:6px;border-radius:50%;background:hsl(var(--fg)/.25);transition:background .35s,width .35s}
+.sctl .dots i.on{background:hsl(var(--ok));width:20px;border-radius:999px}
 
 /* sections */
 section{position:relative;padding:clamp(74px,10vw,132px) 0}
@@ -310,10 +320,17 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 <section id="proof">
   <div class="wrap">
     <div class="eyebrow rv"><span class="bar2"></span><span class="mono">05 — The receipts</span></div>
-    <h2 class="rv">Everything above, <s>with the working out.</s></h2>
-    <p class="sub rv">Real pieces from the jobs and projects on this page. Click any of them to see it properly.</p>
+    <h2 class="rv">Five things I have actually sold, <s>built or argued for.</s></h2>
+    <div class="proofgrid rv">
+      <div class="proofmeta">
+        <div class="ct" id="ct">01 / 05</div>
+        <p class="cap" id="cap"></p>
+        <p class="sub" style="margin-top:4px;font-size:14.5px">Tap the stack to go through them. The corner arrow opens one full size.</p>
+        <div class="sctl"><button id="prev" aria-label="Previous">&#8592;</button><button id="next" aria-label="Next">&#8594;</button><span class="dots"><i class="on"></i><i></i><i></i><i></i><i></i></span></div>
+      </div>
+      <div class="stack" id="stack"><div class="card " data-s="c05d51770593.jpg" data-c="<b>Travelway.</b> The campaign summary. It was forecast to lose money; this is what it did instead." data-plain="Travelway campaign summary: the projected loss and what the campaign actually did."><span class="stamp">£50k+</span><img src="c05d51770593.jpg" alt="Travelway campaign summary: the projected loss and what the campaign actually did." loading="lazy"><span class="zoom">&#8599;</span></div><div class="card " data-s="2fa22406eee6.jpg" data-c="<b>OdjoAI.</b> A blog post I wrote on outreach to UK freelancers. Outreach content, published." data-plain="Blog post I wrote for OdjoAI on outreach to UK freelancers."><img src="2fa22406eee6.jpg" alt="Blog post I wrote for OdjoAI on outreach to UK freelancers." loading="lazy"><span class="zoom">&#8599;</span></div><div class="card " data-s="4b59484c2713.jpg" data-c="<b>The Gap.</b> Our startup pitch deck. Building a case and standing up to deliver it." data-plain="The Gap: our startup pitch deck for Startups and Incubators."><img src="4b59484c2713.jpg" alt="The Gap: our startup pitch deck for Startups and Incubators." loading="lazy"><span class="zoom">&#8599;</span></div><div class="card " data-s="5cb34c610653.jpg" data-c="<b>IBM.</b> The prototype I built and presented to their team. Graded Outstanding." data-plain="IBM consultancy project: the Figma prototype of an AI learning pathway."><span class="stamp">OUTSTANDING</span><img src="5cb34c610653.jpg" alt="IBM consultancy project: the Figma prototype of an AI learning pathway." loading="lazy"><span class="zoom">&#8599;</span></div><div class="card " data-s="337407cc689a.jpg" data-c="<b>OdjoAI research.</b> 68% of large companies use AI against 25% of small ones. The gap I was selling into." data-plain="OdjoAI research: 68% of large companies use AI, against 25% of small businesses."><img src="337407cc689a.jpg" alt="OdjoAI research: 68% of large companies use AI, against 25% of small businesses." loading="lazy"><span class="zoom">&#8599;</span></div></div>
+    </div>
   </div>
-  <div class="wall rv"><div class="row"><div class="ev " data-s="c05d51770593.jpg" data-c="Travelway campaign summary: the projected loss, and what it actually did."><span class="stamp">£50k+</span><img src="c05d51770593.jpg" alt="Travelway campaign summary: the projected loss, and what it actually did." loading="lazy"><p>Travelway campaign summary: the projected loss, and what it actually did.</p></div><div class="ev " data-s="5cb34c610653.jpg" data-c="IBM consultancy project: the Figma prototype I built and presented."><span class="stamp">OUTSTANDING</span><img src="5cb34c610653.jpg" alt="IBM consultancy project: the Figma prototype I built and presented." loading="lazy"><p>IBM consultancy project: the Figma prototype I built and presented.</p></div><div class="ev " data-s="2fa22406eee6.jpg" data-c="A blog post I wrote for OdjoAI on outreach to UK freelancers."><img src="2fa22406eee6.jpg" alt="A blog post I wrote for OdjoAI on outreach to UK freelancers." loading="lazy"><p>A blog post I wrote for OdjoAI on outreach to UK freelancers.</p></div><div class="ev " data-s="4b59484c2713.jpg" data-c="The Gap: our startup pitch deck for Startups and Incubators."><img src="4b59484c2713.jpg" alt="The Gap: our startup pitch deck for Startups and Incubators." loading="lazy"><p>The Gap: our startup pitch deck for Startups and Incubators.</p></div><div class="ev " data-s="c05d51770593.jpg" data-c="Travelway campaign summary: the projected loss, and what it actually did."><span class="stamp">£50k+</span><img src="c05d51770593.jpg" alt="Travelway campaign summary: the projected loss, and what it actually did." loading="lazy"><p>Travelway campaign summary: the projected loss, and what it actually did.</p></div><div class="ev " data-s="5cb34c610653.jpg" data-c="IBM consultancy project: the Figma prototype I built and presented."><span class="stamp">OUTSTANDING</span><img src="5cb34c610653.jpg" alt="IBM consultancy project: the Figma prototype I built and presented." loading="lazy"><p>IBM consultancy project: the Figma prototype I built and presented.</p></div><div class="ev " data-s="2fa22406eee6.jpg" data-c="A blog post I wrote for OdjoAI on outreach to UK freelancers."><img src="2fa22406eee6.jpg" alt="A blog post I wrote for OdjoAI on outreach to UK freelancers." loading="lazy"><p>A blog post I wrote for OdjoAI on outreach to UK freelancers.</p></div><div class="ev " data-s="4b59484c2713.jpg" data-c="The Gap: our startup pitch deck for Startups and Incubators."><img src="4b59484c2713.jpg" alt="The Gap: our startup pitch deck for Startups and Incubators." loading="lazy"><p>The Gap: our startup pitch deck for Startups and Incubators.</p></div></div><div class="row b"><div class="ev " data-s="337407cc689a.jpg" data-c="OdjoAI research: 68% of large companies use AI, against 25% of small businesses."><img src="337407cc689a.jpg" alt="OdjoAI research: 68% of large companies use AI, against 25% of small businesses." loading="lazy"><p>OdjoAI research: 68% of large companies use AI, against 25% of small businesses.</p></div><div class="ev " data-s="1f0f9c9c0442.jpg" data-c="Onboarding deck I wrote for new society analysts, with the metrics we tracked."><img src="1f0f9c9c0442.jpg" alt="Onboarding deck I wrote for new society analysts, with the metrics we tracked." loading="lazy"><p>Onboarding deck I wrote for new society analysts, with the metrics we tracked.</p></div><div class="ev " data-s="a65a2afe628a.jpg" data-c="Line balancing: idle time per workstation, before rebalancing to 87%."><span class="stamp">82%</span><img src="a65a2afe628a.jpg" alt="Line balancing: idle time per workstation, before rebalancing to 87%." loading="lazy"><p>Line balancing: idle time per workstation, before rebalancing to 87%.</p></div><div class="ev " data-s="e529c257ad9a.jpg" data-c="The IBM student consultancy brief and how we approached it."><img src="e529c257ad9a.jpg" alt="The IBM student consultancy brief and how we approached it." loading="lazy"><p>The IBM student consultancy brief and how we approached it.</p></div><div class="ev " data-s="337407cc689a.jpg" data-c="OdjoAI research: 68% of large companies use AI, against 25% of small businesses."><img src="337407cc689a.jpg" alt="OdjoAI research: 68% of large companies use AI, against 25% of small businesses." loading="lazy"><p>OdjoAI research: 68% of large companies use AI, against 25% of small businesses.</p></div><div class="ev " data-s="1f0f9c9c0442.jpg" data-c="Onboarding deck I wrote for new society analysts, with the metrics we tracked."><img src="1f0f9c9c0442.jpg" alt="Onboarding deck I wrote for new society analysts, with the metrics we tracked." loading="lazy"><p>Onboarding deck I wrote for new society analysts, with the metrics we tracked.</p></div><div class="ev " data-s="a65a2afe628a.jpg" data-c="Line balancing: idle time per workstation, before rebalancing to 87%."><span class="stamp">82%</span><img src="a65a2afe628a.jpg" alt="Line balancing: idle time per workstation, before rebalancing to 87%." loading="lazy"><p>Line balancing: idle time per workstation, before rebalancing to 87%.</p></div><div class="ev " data-s="e529c257ad9a.jpg" data-c="The IBM student consultancy brief and how we approached it."><img src="e529c257ad9a.jpg" alt="The IBM student consultancy brief and how we approached it." loading="lazy"><p>The IBM student consultancy brief and how we approached it.</p></div></div></div>
 </section>
 
 <section id="values">
@@ -448,6 +465,54 @@ document.getElementById('tr').innerHTML=(function(){
     if(e.target.closest('#lb')) lb.classList.remove('on');
   });
   addEventListener('keydown',function(e){ if(e.key==='Escape') lb.classList.remove('on'); });
+})();
+
+
+/* ── evidence stack ── */
+(function(){
+  var st=document.getElementById('stack'); if(!st) return;
+  var cards=[].slice.call(st.querySelectorAll('.card')),
+      cap=document.getElementById('cap'), ct=document.getElementById('ct'),
+      dots=[].slice.call(document.querySelectorAll('.sctl .dots i')),
+      n=cards.length, top=0, busy=false;
+  var OFF=[[0,0,0,1],[16,-12,-2.6,.955],[30,-22,2.2,.912],[42,-30,-1.4,.872],[52,-36,1.6,.838]];
+  function place(){
+    for(var i=0;i<n;i++){
+      var c=cards[(top+i)%n], o=OFF[Math.min(i,OFF.length-1)];
+      c.dataset.i=i;
+      c.style.zIndex=n-i;
+      c.style.transform='translate3d(0,'+o[1]+'px,0) rotate('+o[2]+'deg) scale('+o[3]+')';
+      c.style.opacity = i<5 ? 1 : 0;
+      c.style.filter = i===0 ? 'none' : 'brightness('+(1-i*0.14).toFixed(2)+')';
+      c.style.pointerEvents = i===0 ? 'auto' : 'none';
+    }
+    var f=cards[top];
+    ct.textContent=('0'+(top+1))+' / '+('0'+n);
+    cap.classList.add('sw');
+    setTimeout(function(){ cap.innerHTML=f.dataset.c; cap.classList.remove('sw'); },240);
+    dots.forEach(function(d,i){ d.classList.toggle('on', i===top); });
+  }
+  function go(dir){
+    if(busy) return; busy=true;
+    if(dir>0){
+      var f=cards[top]; f.classList.add('out');
+      setTimeout(function(){ f.classList.remove('out'); top=(top+1)%n; place(); busy=false; },420);
+    } else { top=(top-1+n)%n; place(); setTimeout(function(){busy=false;},420); }
+  }
+  st.addEventListener('click',function(e){
+    if(e.target.closest('.zoom')){
+      var f=cards[top], lb=document.getElementById('lb');
+      lb.querySelector('img').src=f.dataset.s; lb.querySelector('p').textContent=f.dataset.plain;
+      lb.classList.add('on'); return;
+    }
+    go(1);
+  });
+  document.getElementById('prev').addEventListener('click',function(){go(-1)});
+  document.getElementById('next').addEventListener('click',function(){go(1)});
+  var sx=null;
+  st.addEventListener('pointerdown',function(e){sx=e.clientX});
+  st.addEventListener('pointerup',function(e){ if(sx!==null&&Math.abs(e.clientX-sx)>55){ go(e.clientX<sx?1:-1);} sx=null; });
+  place();
 })();
 
 /* ── receipt prints itself ─────────────────────────── */
