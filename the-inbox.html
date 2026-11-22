@@ -132,23 +132,34 @@ h2 s{text-decoration:none;color:var(--ink2)}
 .step:after{content:"";position:absolute;right:-26px;bottom:-26px;width:76px;height:86px;
   background:var(--zap);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);opacity:.5}
 
-/* 04 work grid */
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}
-.wcard{background:var(--paper);border:1.5px solid var(--ink);border-radius:18px;overflow:hidden;
-  display:flex;flex-direction:column;transition:transform .3s var(--e),box-shadow .3s var(--e)}
-.wcard:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--ink)}
-.wcard .shot{position:relative;background:var(--cream);border-bottom:1.5px solid var(--ink);
-  height:190px;padding:13px;overflow:hidden}
-.wcard .shot img{width:100%;height:100%;object-fit:contain;border-radius:5px}
-.wcard .shot.tall img{object-fit:cover;object-position:top}
-.wcard .chip{position:absolute;top:10px;right:10px;background:var(--zap);border:1.5px solid var(--ink);
-  border-radius:999px;padding:2px 10px;font-family:M,monospace;font-size:10px;letter-spacing:.11em;
-  text-transform:uppercase}
-.wcard .body{padding:15px 17px 18px}
-.wcard h3{font-family:G,sans-serif;font-weight:700;font-size:17px;margin:0 0 6px;letter-spacing:-.015em}
-.wcard p{margin:0;font-size:14px;color:var(--ink2)}
-.wcard .k{display:block;margin-top:9px;font-family:M,monospace;font-size:10px;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--ink2)}
+/* 04 work piles */
+.piles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(26px,3.4vw,54px) clamp(22px,3vw,44px);margin-top:clamp(44px,6vw,76px);align-items:start}
+.pile{min-width:0}
+.stackp{position:relative;aspect-ratio:1/.92;max-width:100%;display:grid;place-items:center}
+.pc{position:absolute;margin:0;width:58%;aspect-ratio:3/4;background:#fff;border:1.5px solid var(--ink);
+  border-radius:10px;overflow:hidden;box-shadow:5px 6px 0 rgba(17,17,16,.18);
+  transition:transform .7s cubic-bezier(.34,1.35,.64,1)}
+.land .pc{width:84%;aspect-ratio:16/10}
+.pc img{width:100%;height:100%;display:block;object-fit:cover;object-position:top center}
+.pc1{transform:rotate(-9deg) translate(-16%,2%);z-index:1}
+.pc2{transform:rotate(7deg) translate(16%,-2%);z-index:2}
+.pc3{transform:rotate(-1.5deg) translateY(4%);z-index:3;box-shadow:7px 8px 0 var(--ink)}
+.land .pc1{transform:rotate(-8deg) translate(-8%,-14%)}
+.land .pc2{transform:rotate(6deg) translate(8%,-4%)}
+.land .pc3{transform:rotate(-1.5deg) translateY(16%)}
+.pile:hover .pc1{transform:rotate(-14deg) translate(-26%,0)}
+.pile:hover .pc2{transform:rotate(12deg) translate(26%,-4%)}
+.pile:hover .pc3{transform:rotate(0) translateY(0)}
+.land:hover .pc1{transform:rotate(-11deg) translate(-13%,-22%)}
+.land:hover .pc2{transform:rotate(9deg) translate(13%,-8%)}
+.land:hover .pc3{transform:rotate(0) translateY(18%)}
+.pt{margin-top:20px;display:grid;gap:3px}
+.pt b{font-family:G,sans-serif;font-weight:700;font-size:19px;letter-spacing:-.02em;
+  display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.pt b i{font-style:normal;background:var(--zap);border:1.5px solid var(--ink);border-radius:999px;
+  padding:1px 9px;font-family:M,monospace;font-size:10px;letter-spacing:.11em;text-transform:uppercase}
+.pt span{font-size:14px;color:var(--ink2)}
 
 /* along the way */
 .along{margin-top:clamp(44px,6vw,70px);border-top:1.5px solid var(--ink);padding-top:26px}
@@ -183,7 +194,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .rv.on{opacity:1;transform:none}
 .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
 
-@media(max-width:1100px){ .grid{grid-template-columns:repeat(2,1fr)} }
+@media(max-width:1100px){ .piles{grid-template-columns:repeat(2,minmax(0,1fr))} }
 @media(max-width:900px){
   nav .links{display:none}
   nav{padding:7px 7px 7px 16px}
@@ -193,12 +204,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   header .wrap{padding-right:0;display:flex;flex-direction:column}
   header h1{order:1} header .lede{order:2} header .acts{order:3}
   .two,.steps,.vals{grid-template-columns:1fr}
-  .grid{grid-template-columns:1fr}
+  .piles{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:48px}
   .mx{grid-template-columns:repeat(2,1fr);gap:22px}
   h1{max-width:none}
 }
 @media(prefers-reduced-motion:reduce){
   .rv{opacity:1;transform:none}
+  .pc{transition:none}
   .tick-row{animation:none}
   .card .row{opacity:1;transform:none}
 }
@@ -308,32 +320,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   <div class="wrap">
     <div class="eyebrow rv"><span class="bar"></span><span class="mono">04 — The work</span></div>
     <h2 class="rv">Six things I have actually <s>written, built or argued for.</s></h2>
-    <p class="sub rv">Every picture is the real thing, not a mockup of it.</p>
-    <div class="grid">
-      <article class="wcard rv">
-        <div class="shot"><img src="1f0f9c9c0442.jpg" alt="Onboarding deck"></div>
-        <div class="body"><h3>Onboarding deck</h3><p>Written so people would stop asking me. New analysts could find the answer themselves.</p><span class="k">Queen Mary Islamic Finance Society</span></div>
-      </article>
-      <article class="wcard rv d1">
-        <div class="shot tall"><img src="9a3a7cce8b19.jpg" alt="A support flow"></div>
-        <div class="body"><h3>A support flow</h3><p>What a good answer looks like, mapped out before anyone has to ask twice.</p><span class="k">SustainQ, QIncubator</span></div>
-      </article>
-      <article class="wcard rv d2">
-        <div class="shot"><img src="b275f5a10501.jpg" alt="When AI should answer"></div>
-        <div class="body"><h3>When AI should answer</h3><p>My recommendations on where AI-drafted replies are safe, from a healthcare case study.</p><span class="k">Group case study</span></div>
-      </article>
-      <article class="wcard rv">
-        <div class="shot"><img src="5cb34c610653.jpg" alt="IBM prototype"><span class="chip">Outstanding</span></div>
-        <div class="body"><h3>IBM prototype</h3><p>A learning pathway built and presented to IBM. Teaching a system to people who have never seen it.</p><span class="k">IBM student consultancy</span></div>
-      </article>
-      <article class="wcard rv d1">
-        <div class="shot"><img src="c05d51770593.jpg" alt="Travelway campaign"><span class="chip">£50k+</span></div>
-        <div class="body"><h3>Travelway campaign</h3><p>Forecast to lose money. I wrote the proposal, picked the audience and sat through the review.</p><span class="k">Campaign lead</span></div>
-      </article>
-      <article class="wcard rv d2">
-        <div class="shot"><img src="a65a2afe628a.jpg" alt="Where the time goes"><span class="chip">82%</span></div>
-        <div class="body"><h3>Where the time goes</h3><p>Line balancing: finding the idle minutes in a process, then taking them out.</p><span class="k">Operations Management</span></div>
-      </article>
+    <p class="sub rv">Every picture is the real thing, not a mockup of it. Hover to fan them out.</p>
+    <div class="piles">
+      <div class="pile rv land"><div class="stackp"><figure class="pc pc1"><img src="10126db7f3c7.jpg" alt="Inbox Intervention case study slide"></figure><figure class="pc pc2"><img src="30046c677c3c.jpg" alt="Slide showing how many AI responses needed significant edits"></figure><figure class="pc pc3"><img src="b275f5a10501.jpg" alt="Conclusion and recommendations slide"></figure></div><p class="pt"><b>Inbox Intervention</b><span>Where AI should draft a reply, and where a person has to</span></p></div>
+      <div class="pile rv d1 land"><div class="stackp"><figure class="pc pc1"><img src="1f0f9c9c0442.jpg" alt="Data Analyst role slide"></figure><figure class="pc pc2"><img src="fdce21fda0cd.jpg" alt="Research Analyst role slide"></figure><figure class="pc pc3"><img src="076f3a87bf05.jpg" alt="News Analyst role slide"></figure></div><p class="pt"><b>Onboarding deck</b><span>Written so new analysts could find the answer themselves</span></p></div>
+      <div class="pile rv d2 "><div class="stackp"><figure class="pc pc1"><img src="9a3a7cce8b19.jpg" alt="SustainQ support chat"></figure><figure class="pc pc2"><img src="32ff74ddd576.jpg" alt="SustainQ feed of challenges"></figure><figure class="pc pc3"><img src="831ceea36b14.jpg" alt="SustainQ profile screen"></figure></div><p class="pt"><b>SustainQ<i>Team lead</i></b><span>The support flow, mapped before anyone had to ask twice</span></p></div>
+      <div class="pile rv land"><div class="stackp"><figure class="pc pc1"><img src="e529c257ad9a.jpg" alt="IBM consultancy brief and approach slide"></figure><figure class="pc pc2"><img src="5cb34c610653.jpg" alt="Figma prototype of the AI learning pathway"></figure></div><p class="pt"><b>IBM AI pathway<i>Outstanding</i></b><span>Built and presented to IBM</span></p></div>
+      <div class="pile rv d1 land"><div class="stackp"><figure class="pc pc1"><img src="d6e9407beaa6.jpg" alt="Travelway homepage"></figure><figure class="pc pc2"><img src="c05d51770593.jpg" alt="Travelway campaign summary"></figure></div><p class="pt"><b>Travelway campaign<i>£50k+</i></b><span>Forecast to lose money. Proposal, audience, review.</span></p></div>
+      <div class="pile rv d2 land"><div class="stackp"><figure class="pc pc1"><img src="98d3a963542e.jpg" alt="Network diagram of production tasks"></figure><figure class="pc pc2"><img src="c1ee5a7e4eef.jpg" alt="Updated network with slack times"></figure><figure class="pc pc3"><img src="a65a2afe628a.jpg" alt="Line balancing table with idle time highlighted"></figure></div><p class="pt"><b>Where the time goes<i>82%</i></b><span>Finding the idle minutes in a process, then taking them out</span></p></div>
     </div>
 
     <div class="along rv">
