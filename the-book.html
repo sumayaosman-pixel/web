@@ -225,6 +225,10 @@ h2 s{text-decoration:none;color:var(--dim2)}
 .mc .peek b{font-family:M,monospace;font-size:10px;letter-spacing:.16em;margin:0;color:#0A0A0A}
 .mc .ribbon{position:absolute;right:-28px;top:14px;width:120px;height:20px;background:var(--zap);
   transform:rotate(38deg)}
+.mc.wide{grid-column:1/-1;display:flex;align-items:center;gap:clamp(18px,3vw,34px);padding:24px 28px}
+.mc.wide svg{flex:none}
+.mc.wide b{margin-top:0;font-size:18px}
+.mc.wide p{max-width:62ch}
 
 /* finance */
 .fin{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(28px,4.4vw,64px);align-items:start}
@@ -407,7 +411,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <div class="frow"><dt>Two years</dt><dd><b>Head Analyst</b>, Queen Mary Islamic Finance Society. Ran the analyst team and the newsletter they published.</dd></div>
       <div class="frow"><dt>In my degree</dt><dd><b>Accounting for Business</b> and <b>Economics for Business and Society</b>, then Working with Business Data and Global Supply Chain Analytics.</dd></div>
       <div class="frow"><dt>Studying now</dt><dd>The <b>Islamic Finance Qualification</b>. Most of it is structure: how a product is built, who carries the risk, what it actually costs the person taking it.</dd></div>
-      <div class="frow"><dt>Selected for</dt><dd>An <b>AIG insight day</b> on the insurance side of financial services: where tech and data sit beyond underwriting, and what actually gets covered, down to the jewellery at the Met Gala.</dd></div>
+      <div class="frow"><dt>Handpicked</dt><dd>For an <b>AIG insight day</b> on the insurance side of financial services: where tech and data sit beyond underwriting, and what actually gets covered, down to the jewellery at the Met Gala.</dd></div>
       <div class="frow"><dt>Written</dt><dd>A lead story on a fund lending to businesses that mainstream finance tends to <b>decline or ignore</b>.</dd></div>
     </dl>
   </div>
@@ -445,6 +449,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <div class="mc rv"><span class="big">88%</span><b>Organisational Learning at MediaFly</b><p>An essay on their learning practices and where AI could help them become a learning organisation.</p></div>
       <div class="mc rv d1"><span class="ribbon" aria-hidden="true"></span><span class="peek"><b>ADMIT ONE</b>Museum day trip</span><b>QM Book Club, Welfare Rep</b><p>Ran monthly themed events, quizzes, museum trips and book crawls.</p></div>
       <div class="mc rv d2"><span class="big">1st</span><b>First Class Honours</b><p>BSc Business Management, Queen Mary University of London.</p></div>
+      <div class="mc wide rv"><svg viewBox="0 0 120 120" width="92" height="92" aria-hidden="true"><defs><path id="ringA" d="M60 60m-42 0a42 42 0 1 1 84 0a42 42 0 1 1-84 0"/></defs><circle cx="60" cy="60" r="55" fill="#D7F24A" stroke="#0A0A0A" stroke-width="2"/><circle cx="60" cy="60" r="31" fill="none" stroke="#0A0A0A" stroke-width="1.3"/><text font-family="M, monospace" font-size="9.5" font-weight="700" letter-spacing="1.3" fill="#0A0A0A"><textPath href="#ringA">HANDPICKED &#10022; INSIGHT DAY &#10022; AIG &#10022;</textPath></text><text x="60" y="56" text-anchor="middle" font-family="J, sans-serif" font-size="19" font-weight="600" fill="#0A0A0A">AIG</text><text x="60" y="72" text-anchor="middle" font-family="M, monospace" font-size="7.5" letter-spacing="1.2" fill="#0A0A0A">INSIGHT DAY</text></svg><div><b>AIG insight day &mdash; handpicked to attend</b><p>A day inside the insurance end of financial services: where tech and data sit beyond underwriting, how careers actually progress there, and what gets covered, down to the jewellery at the Met Gala.</p></div></div>
     </div>
   </div>
 </section>
