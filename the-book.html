@@ -152,6 +152,7 @@ h2 s{text-decoration:none;color:var(--dim2)}
 .piles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
   gap:clamp(26px,3.4vw,52px) clamp(22px,3vw,42px);margin-top:clamp(42px,6vw,72px);align-items:start}
 .pile{min-width:0}
+.pile.solo{grid-column:2}
 .stackp{position:relative;aspect-ratio:1/.92;display:grid;place-items:center}
 .pc{position:absolute;margin:0;width:58%;aspect-ratio:3/4;background:#fff;border-radius:12px;
   overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.45);
@@ -267,6 +268,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
 
 @media(max-width:1100px){ .piles{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pile.solo{grid-column:auto}
   .mgrid{grid-template-columns:repeat(2,minmax(0,1fr))} }
 @media(max-width:900px){
   nav .links{display:none}
@@ -396,6 +398,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <div class="pile rv d1 land"><div class="stackp"><figure class="pc pc1"><img src="e529c257ad9a.jpg" alt="IBM consultancy brief slide"></figure><figure class="pc pc2"><img src="5cb34c610653.jpg" alt="Figma prototype of the AI learning pathway"></figure></div><p class="pt"><b>IBM AI pathway<i>Outstanding</i></b><span>Built and presented to IBM</span></p></div>
 
       <div class="pile rv d2 land"><div class="stackp"><figure class="pc pc1"><img src="98d3a963542e.jpg" alt="Network diagram of production tasks"></figure><figure class="pc pc2"><img src="c1ee5a7e4eef.jpg" alt="Updated network with slack times"></figure><figure class="pc pc3"><img src="a65a2afe628a.jpg" alt="Line balancing table"></figure><span class="gstamp"><small>Grade</small>82<em>%</em></span></div><p class="pt"><b>Where the time goes<i>Operations</i></b><span>Reading a process off the numbers, then taking the idle minutes out</span></p></div>
+      <div class="pile rv solo"><div class="stackp"><figure class="pc pc1"><img src="831ceea36b14.jpg" alt="SustainQ profile screen"></figure><figure class="pc pc2"><img src="32ff74ddd576.jpg" alt="SustainQ feed of challenges"></figure><figure class="pc pc3"><img src="9a3a7cce8b19.jpg" alt="SustainQ support chat"></figure></div><p class="pt"><b>SustainQ<i>Team lead</i></b><span>The app I led through my university incubator: support chat, challenges, profiles</span></p></div>
     </div>
   </div>
 </section>
