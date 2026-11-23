@@ -184,6 +184,44 @@ h2 s{text-decoration:none;color:var(--dim2)}
   padding:2px 9px;font-family:M,monospace;font-size:10px;letter-spacing:.11em;text-transform:uppercase}
 .pt span{font-size:14px;color:var(--dim2)}
 
+/* quote + along the way */
+.qslab{background:var(--cream);color:#0A0A0A;border-radius:clamp(22px,3vw,36px);
+  width:min(1180px,92vw);margin:clamp(70px,9vw,110px) auto 0;padding:clamp(38px,5.2vw,64px) clamp(26px,4vw,56px);
+  display:grid;grid-template-columns:1.3fr .7fr;gap:clamp(26px,4vw,56px);align-items:center}
+.qslab blockquote{margin:0;font-family:N,Georgia,serif;font-weight:400;
+  font-size:clamp(21px,2.6vw,34px);line-height:1.22;letter-spacing:-.018em}
+.qslab blockquote b{font-weight:400;background:var(--zap);border-radius:5px;padding:0 6px}
+.qslab .who{margin:22px 0 0;font-size:14px;color:#6A6A62}
+.qslab .who b{display:block;color:#0A0A0A;font-weight:600;font-size:15px;font-family:J,sans-serif}
+.qthumb{position:relative;background:#fff;border-radius:14px;padding:10px;
+  box-shadow:0 16px 36px rgba(0,0,0,.14)}
+.qthumb img{width:100%;border-radius:8px;display:block}
+.qthumb em{position:absolute;left:50%;bottom:-13px;transform:translateX(-50%);white-space:nowrap;
+  background:var(--zap);border-radius:999px;padding:4px 13px;font-family:M,monospace;font-style:normal;
+  font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#0A0A0A}
+
+.along{margin-top:clamp(60px,8vw,96px);border-top:1px solid var(--line);padding-top:30px}
+.along h3{font-family:N,Georgia,serif;font-weight:400;font-size:clamp(23px,2.7vw,32px);
+  margin:0 0 6px;letter-spacing:-.02em}
+.along .sub{margin:0 0 24px}
+.mgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.mc{margin:0;position:relative;background:var(--card);border:1px solid var(--line);border-radius:20px;
+  padding:20px;overflow:hidden;transition:border-color .3s,transform .3s var(--e)}
+.mc:hover{border-color:rgba(215,242,74,.45);transform:translateY(-3px)}
+.mc b{display:block;font-family:J,sans-serif;font-weight:600;font-size:16px;margin-top:13px;
+  letter-spacing:-.01em}
+.mc p{margin:7px 0 0;font-size:13.5px;color:var(--dim2);line-height:1.45}
+.mc img{width:100%;border-radius:11px;display:block}
+.mc figcaption span{font-family:M,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--zap)}
+.mc .big{display:block;font-family:J,sans-serif;font-weight:600;font-size:56px;line-height:.9;
+  letter-spacing:-.04em;color:var(--zap)}
+.mc .peek{display:grid;gap:2px;background:rgba(255,255,255,.05);border:1px dashed rgba(255,255,255,.22);
+  border-radius:12px;padding:13px 15px;font-size:12px;color:var(--dim2)}
+.mc .peek b{font-family:M,monospace;font-size:10px;letter-spacing:.16em;margin:0;color:var(--zap)}
+.mc .ribbon{position:absolute;right:-28px;top:14px;width:120px;height:20px;background:var(--zap);
+  transform:rotate(38deg)}
+
 /* finance */
 .fin{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(28px,4.4vw,64px);align-items:start}
 .flist{display:grid;gap:0;border-top:1px solid var(--line)}
@@ -220,14 +258,16 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .rv.on{opacity:1;transform:none}
 .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
 
-@media(max-width:1100px){ .piles{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media(max-width:1100px){ .piles{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .mgrid{grid-template-columns:repeat(2,minmax(0,1fr))} }
 @media(max-width:900px){
   nav .links{display:none}
   header{padding:110px 0 36px}
   header .wrap{padding-right:0;display:flex;flex-direction:column}
   header h1{order:1} header .lede{order:2} header .acts{order:3}
   .panel{position:static;width:100%;margin-top:30px;order:4}
-  .two,.steps,.vals,.fin{grid-template-columns:1fr}
+  .two,.steps,.vals,.fin,.qslab{grid-template-columns:1fr}
+  .mgrid{grid-template-columns:1fr}
   .frow{grid-template-columns:1fr;gap:6px}
   .piles{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:46px}
   .mx{grid-template-columns:repeat(2,1fr);gap:22px}
@@ -377,6 +417,29 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <div class="v rv d1"><h4>I already do the quiet half of it</h4><p>Re-engagement and activation: ringing customers who bought something and never switched it on. Most of them said no to me once already.</p></div>
       <div class="v rv d2"><h4>Owners can tell</h4><p>Apple taught me that people know when they&#39;re being sold the add-on with the best margin. They buy the one you explain honestly.</p></div>
       <div class="v rv d3"><h4>I know my numbers without being asked</h4><p>130% at Aircall, 56% at Apple, £50,000+ at Travelway. I can tell you what I did last week too.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="qslab rv">
+  <div>
+    <blockquote>Your project not only serves as a <b>testament to your academic capabilities</b> but also highlights your potential as future leaders and innovators.</blockquote>
+    <p class="who"><b>John McNamara</b>IBM Master Inventor, on our student consultancy recommendation</p>
+  </div>
+  <span class="qthumb"><img src="e529c257ad9a.jpg" alt="Our IBM student consultancy brief slide"><em>Outstanding Recommendation</em></span>
+</div>
+
+<section style="padding-top:0">
+  <div class="wrap along">
+    <h3 class="rv">Along the way</h3>
+    <p class="sub rv">The smaller proof. Things I picked up while doing the above.</p>
+    <div class="mgrid">
+      <figure class="mc rv"><img src="88258c9de309.jpg" alt="Certificate: PwC and EDI Future Leaders Programme"><figcaption><span>Completed</span><b>PwC and EDI Future Leaders Programme</b></figcaption></figure>
+      <div class="mc rv d1"><svg viewBox="0 0 90 110" width="60" height="74" aria-hidden="true"><path d="M28 4h14l6 40H34z" fill="#fff"/><path d="M48 4h14l-6 40H42z" fill="#D7F24A"/><circle cx="45" cy="70" r="26" fill="#D7F24A"/><circle cx="45" cy="70" r="20" fill="none" stroke="#0A0A0A" stroke-width="1.5"/><path d="M45 56l4 9 10 1-7.5 6.5 2.5 9.5-9-5.2-9 5.2 2.5-9.5L31 66l10-1z" fill="#0A0A0A"/></svg><b>Student Speaker, Employers&#39; Address 2024</b><p>Spoke at Queen Mary&#39;s event on social mobility and inclusion, alongside Sandra Kerr CBE of Business in the Community and EY&#39;s Julie Linn Teigland.</p></div>
+      <div class="mc rv d2"><svg viewBox="0 0 120 120" width="84" height="84" aria-hidden="true"><defs><path id="ringT" d="M60 60m-42 0a42 42 0 1 1 84 0a42 42 0 1 1-84 0"/></defs><circle cx="60" cy="60" r="55" fill="none" stroke="#D7F24A" stroke-width="2.4"/><circle cx="60" cy="60" r="31" fill="none" stroke="#D7F24A" stroke-width="1.4"/><text font-family="M, monospace" font-size="10" font-weight="700" letter-spacing="1.1" fill="#D7F24A"><textPath href="#ringT">CERTIFIED &#10022; BRIGHT NETWORK &#10022; 2025 &#10022;</textPath></text><text x="60" y="57" text-anchor="middle" font-family="J, sans-serif" font-size="15" font-weight="600" fill="#fff">C2C II</text><path d="M49 66l7 7 15-15" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Couch2Coder II, Bright Network</b><p>Learnt the foundations of coding through quizzes, then built my own recipe website.</p></div>
+      <div class="mc rv"><span class="big">88%</span><b>Organisational Learning at MediaFly</b><p>An essay on their learning practices and where AI could help them become a learning organisation.</p></div>
+      <div class="mc rv d1"><span class="ribbon" aria-hidden="true"></span><span class="peek"><b>ADMIT ONE</b>Museum day trip</span><b>QM Book Club, Welfare Rep</b><p>Ran monthly themed events, quizzes, museum trips and book crawls.</p></div>
+      <div class="mc rv d2"><span class="big">1st</span><b>First Class Honours</b><p>BSc Business Management, Queen Mary University of London.</p></div>
     </div>
   </div>
 </section>
