@@ -184,6 +184,18 @@ h2 s{text-decoration:none;color:var(--dim2)}
   padding:2px 9px;font-family:M,monospace;font-size:10px;letter-spacing:.11em;text-transform:uppercase}
 .pt span{font-size:14px;color:var(--dim2)}
 
+/* finance */
+.fin{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(28px,4.4vw,64px);align-items:start}
+.flist{display:grid;gap:0;border-top:1px solid var(--line)}
+.frow{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:17px 2px;
+  border-bottom:1px solid var(--line);align-items:baseline}
+.frow dt{font-family:M,monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--zap);margin:0}
+.frow dd{margin:0;font-size:15px;color:var(--dim)}
+.frow dd b{color:#fff;font-weight:500}
+.fclose{margin-top:26px;font-family:N,Georgia,serif;font-size:clamp(19px,2vw,25px);line-height:1.3;
+  letter-spacing:-.015em;color:#fff}
+
 /* stance */
 .stance{background:var(--zap);color:#0A0A0A;border-radius:clamp(22px,3vw,36px);
   width:min(1180px,92vw);margin:0 auto;padding:clamp(40px,5.6vw,72px) clamp(26px,4vw,56px)}
@@ -215,7 +227,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   header .wrap{padding-right:0;display:flex;flex-direction:column}
   header h1{order:1} header .lede{order:2} header .acts{order:3}
   .panel{position:static;width:100%;margin-top:30px;order:4}
-  .two,.steps,.vals{grid-template-columns:1fr}
+  .two,.steps,.vals,.fin{grid-template-columns:1fr}
+  .frow{grid-template-columns:1fr;gap:6px}
   .piles{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:46px}
   .mx{grid-template-columns:repeat(2,1fr);gap:22px}
 }
@@ -231,7 +244,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   <span class="mark">Sumaya Osman</span>
   <div class="links">
     <a href="#read">Before the call</a><a href="#numbers">Numbers</a>
-    <a href="#call">The call</a><a href="#work">Work</a><a href="#stance">Stance</a>
+    <a href="#call">The call</a><a href="#work">Work</a><a href="#finance">Finance</a><a href="#stance">Stance</a>
   </div>
   <a class="btn" href="mailto:sumayaosman644@gmail.com?subject=Sumaya%20Osman">Get in touch <i>↗</i></a>
 </nav>
@@ -328,7 +341,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
       <div class="pile rv d1 land"><div class="stackp"><figure class="pc pc1"><img src="c05d51770593.jpg" alt="Travelway campaign summary"></figure><figure class="pc pc2"><img src="d6e9407beaa6.jpg" alt="Travelway homepage"></figure></div><p class="pt"><b>Travelway campaign<i>£50k+</i></b><span>Forecast to lose money. Proposal, audience, review.</span></p></div>
 
-      <div class="pile rv d2"><div class="stackp"><figure class="pc pc1"><img src="418dbe7852ce.jpg" alt="Amanah Times lead story"></figure><figure class="pc pc2"><img src="3d4546993455.jpg" alt="Amanah Times contents page"></figure><figure class="pc pc3"><img src="d83c5a845e13.jpg" alt="Amanah Times Issue 1 cover"></figure></div><p class="pt"><b>Amanah Times<i>Head Analyst</i></b><span>I wrote the lead story on the UK&#39;s first Shariah-compliant social investment fund</span></p></div>
+      <div class="pile rv d2"><div class="stackp"><figure class="pc pc1"><img src="418dbe7852ce.jpg" alt="Amanah Times lead story"></figure><figure class="pc pc2"><img src="3d4546993455.jpg" alt="Amanah Times contents page"></figure><figure class="pc pc3"><img src="d83c5a845e13.jpg" alt="Amanah Times Issue 1 cover"></figure></div><p class="pt"><b>Amanah Times<i>Head Analyst</i></b><span>I wrote the lead story on the UK&#39;s first Shariah-compliant social investment fund: how the lending works, and who it reaches that mainstream finance misses</span></p></div>
 
       <div class="pile rv land"><div class="stackp"><figure class="pc pc1"><img src="10126db7f3c7.jpg" alt="Inbox Intervention case study slide"></figure><figure class="pc pc2"><img src="30046c677c3c.jpg" alt="Slide on AI responses needing edits"></figure><figure class="pc pc3"><img src="b275f5a10501.jpg" alt="Conclusion and recommendations slide"></figure><span class="gstamp"><small>Grade</small>80<em>%</em></span></div><p class="pt"><b>Inbox Intervention<i>Case study</i></b><span>Where AI should draft a reply, and where a person has to</span></p></div>
 
@@ -336,6 +349,22 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
       <div class="pile rv d2 land"><div class="stackp"><figure class="pc pc1"><img src="98d3a963542e.jpg" alt="Network diagram of production tasks"></figure><figure class="pc pc2"><img src="c1ee5a7e4eef.jpg" alt="Updated network with slack times"></figure><figure class="pc pc3"><img src="a65a2afe628a.jpg" alt="Line balancing table"></figure><span class="gstamp"><small>Grade</small>82<em>%</em></span></div><p class="pt"><b>Where the time goes<i>Operations</i></b><span>Reading a process off the numbers, then taking the idle minutes out</span></p></div>
     </div>
+  </div>
+</section>
+
+<section id="finance">
+  <div class="wrap fin">
+    <div>
+      <div class="eyebrow rv"><span class="bar"></span><span class="mono">05 — Finance, specifically</span></div>
+      <h2 class="rv">I did not come to financial products <s>cold.</s></h2>
+      <p class="fclose rv">Cash advances, accounts and cards are products with a structure and a cost. I would rather explain one properly than pitch it.</p>
+    </div>
+    <dl class="flist rv">
+      <div class="frow"><dt>Two years</dt><dd><b>Head Analyst</b>, Queen Mary Islamic Finance Society. Ran the analyst team and the newsletter they published.</dd></div>
+      <div class="frow"><dt>In my degree</dt><dd><b>Accounting for Business</b> and <b>Economics for Business and Society</b>, then Working with Business Data and Global Supply Chain Analytics.</dd></div>
+      <div class="frow"><dt>Studying now</dt><dd>The <b>Islamic Finance Qualification</b>. Most of it is structure: how a product is built, who carries the risk, what it actually costs the person taking it.</dd></div>
+      <div class="frow"><dt>Written</dt><dd>A lead story on a fund lending to businesses that mainstream finance tends to <b>decline or ignore</b>.</dd></div>
+    </dl>
   </div>
 </section>
 
