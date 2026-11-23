@@ -128,10 +128,16 @@ h2 s{text-decoration:none;color:var(--dim2)}
 .ncard em{font-style:normal;background:var(--zap);border-radius:5px;padding:0 5px}
 
 /* numbers */
-.mx{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:40px}
-.m .n{font-family:J,sans-serif;font-weight:600;font-size:clamp(34px,4.5vw,56px);
+.mx{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
+.m{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px 22px 20px;
+  display:flex;flex-direction:column;justify-content:space-between;min-height:188px;
+  transition:border-color .3s,transform .3s var(--e)}
+.m:hover{border-color:rgba(215,242,74,.45);transform:translateY(-3px)}
+.m .k{font-family:M,monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--dim2);margin-bottom:14px}
+.m .n{font-family:J,sans-serif;font-weight:600;font-size:clamp(34px,4.3vw,54px);
   letter-spacing:-.03em;color:var(--zap);line-height:1}
-.m p{margin:8px 0 0;font-size:14px;color:var(--dim)}
+.m p{margin:8px 0 0;font-size:14px;color:var(--dim);line-height:1.4}
 .m p b{color:#fff;font-weight:500}
 
 /* steps */
@@ -274,10 +280,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <div class="eyebrow rv"><span class="bar"></span><span class="mono">02 — What I can prove</span></div>
     <h2 class="rv">Every commercial job I have had, <s>I have beaten the number.</s></h2>
     <div class="mx rv">
-      <div class="m"><div class="n" data-to="130" data-suf="%">0%</div><p><b>of target at Aircall</b>, on a book of small business accounts.</p></div>
-      <div class="m"><div class="n" data-to="56" data-suf="%">0%</div><p><b>add-on rate at Apple</b>, selling more to people who had already bought.</p></div>
-      <div class="m"><div class="n" data-to="50" data-pre="£" data-suf="k+">£0</div><p><b>at Travelway</b>, on a campaign forecast to lose money.</p></div>
-      <div class="m"><div class="n" data-to="2000" data-pre="£">£0</div><p><b>raised in three days</b> for charity with my society.</p></div>
+      <div class="m"><div class="k">Aircall</div><div><div class="n" data-to="130" data-suf="%">0%</div><p>of target, on a book of <b>small business accounts</b></p></div></div>
+      <div class="m"><div class="k">Apple</div><div><div class="n" data-to="56" data-suf="%">0%</div><p>add-on rate, <b>double the store target</b></p></div></div>
+      <div class="m"><div class="k">Travelway</div><div><div class="n" data-to="50" data-pre="£" data-suf="k+">£0</div><p>on a campaign <b>forecast to lose money</b></p></div></div>
+      <div class="m"><div class="k">Charity campaign</div><div><div class="n" data-to="2000" data-pre="£">£0</div><p>raised <b>in three days</b></p></div></div>
     </div>
     <p class="sub rv" style="margin-top:34px">Apple is the closest thing I have to this job. Everyone I spoke to had already chosen the product. <b>The sale was the second one, not the first.</b></p>
   </div>
@@ -316,13 +322,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <section id="work">
   <div class="wrap">
     <div class="eyebrow rv"><span class="bar"></span><span class="mono">04 — The work</span></div>
-    <h2 class="rv">Six things I have actually <s>written, built or argued for.</s></h2>
+    <h2 class="rv">Six things I made. <s>Not a list of skills.</s></h2>
     <div class="piles">
       <div class="pile rv land"><div class="stackp"><figure class="pc pc1"><img src="8bad3276ebe7.jpg" alt="The Gap problem slide"></figure><figure class="pc pc2"><img src="4b59484c2713.jpg" alt="The Gap pitch deck cover"></figure><span class="gstamp"><small>Grade</small>1st</span></div><p class="pt"><b>The Gap<i>Startups</i></b><span>A marketplace pitch: cafés&#39; unsold stock, students who want it, less waste</span></p></div>
 
-      <div class="pile rv d1 land"><div class="stackp"><figure class="pc pc1"><img src="d6e9407beaa6.jpg" alt="Travelway homepage"></figure><figure class="pc pc2"><img src="c05d51770593.jpg" alt="Travelway campaign summary"></figure></div><p class="pt"><b>Travelway campaign<i>£50k+</i></b><span>Forecast to lose money. Proposal, audience, review.</span></p></div>
+      <div class="pile rv d1 land"><div class="stackp"><figure class="pc pc1"><img src="c05d51770593.jpg" alt="Travelway campaign summary"></figure><figure class="pc pc2"><img src="d6e9407beaa6.jpg" alt="Travelway homepage"></figure></div><p class="pt"><b>Travelway campaign<i>£50k+</i></b><span>Forecast to lose money. Proposal, audience, review.</span></p></div>
 
-      <div class="pile rv d2"><div class="stackp"><figure class="pc pc1"><img src="a184444422be.jpg" alt="Amanah Times masthead"></figure><figure class="pc pc2"><img src="d83c5a845e13.jpg" alt="Amanah Times Issue 1 cover"></figure><figure class="pc pc3"><img src="418dbe7852ce.jpg" alt="Amanah Times lead story"></figure></div><p class="pt"><b>Amanah Times<i>Head Analyst</i></b><span>I wrote the lead story on the UK&#39;s first Shariah-compliant social investment fund</span></p></div>
+      <div class="pile rv d2"><div class="stackp"><figure class="pc pc1"><img src="418dbe7852ce.jpg" alt="Amanah Times lead story"></figure><figure class="pc pc2"><img src="3d4546993455.jpg" alt="Amanah Times contents page"></figure><figure class="pc pc3"><img src="d83c5a845e13.jpg" alt="Amanah Times Issue 1 cover"></figure></div><p class="pt"><b>Amanah Times<i>Head Analyst</i></b><span>I wrote the lead story on the UK&#39;s first Shariah-compliant social investment fund</span></p></div>
 
       <div class="pile rv land"><div class="stackp"><figure class="pc pc1"><img src="10126db7f3c7.jpg" alt="Inbox Intervention case study slide"></figure><figure class="pc pc2"><img src="30046c677c3c.jpg" alt="Slide on AI responses needing edits"></figure><figure class="pc pc3"><img src="b275f5a10501.jpg" alt="Conclusion and recommendations slide"></figure><span class="gstamp"><small>Grade</small>80<em>%</em></span></div><p class="pt"><b>Inbox Intervention<i>Case study</i></b><span>Where AI should draft a reply, and where a person has to</span></p></div>
 
